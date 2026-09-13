@@ -1,683 +1,1416 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pujeetha's student portfolio — Integrated Business Management student, writer, reader, and language learner.">
-  <title>Pujeetha | Student Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta name="description"
+          content="Pujeetha's personal student portfolio — Integrated Business Management student, writer, reader, and language learner.">
 
-    html {
-      scroll-behavior: smooth;
-    }
+    <title>Pujeetha | Student Portfolio</title>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0d0d12;
-      color: #f5f5f7;
-      line-height: 1.7;
-    }
+    <!-- Elegant headline font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
 
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(13, 13, 18, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #252530;
-    }
 
-    .nav-container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 18px 25px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    <style>
 
-    .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
+        /* =====================================================
+           COLOR PALETTE
+           ===================================================== */
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
+        :root {
+            --deep-pink: #8f4a63;
+            --rose: #b86b83;
+            --soft-pink: #f4dce4;
+            --blush: #faeef2;
+            --cream: #fffaf7;
+            --gold: #b99a5b;
+            --light-gold: #d8c28c;
+            --dark: #35262d;
+            --text: #5d4b52;
+            --muted: #806d74;
+            --white: #ffffff;
+        }
 
-    .nav-links a {
-      color: #b8b8c5;
-      transition: 0.3s;
-    }
 
-    .nav-links a:hover {
-      color: white;
-    }
+        /* =====================================================
+           GENERAL
+           ===================================================== */
 
-    /* Hero */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      max-width: 1100px;
-      margin: auto;
-      padding: 120px 25px 80px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .hero-content {
-      max-width: 800px;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .eyebrow {
-      color: #a78bfa;
-      font-size: 1rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.8;
+        }
 
-    h1 {
-      font-size: clamp(3.5rem, 9vw, 7rem);
-      line-height: 1;
-      margin-bottom: 25px;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    .hero h2 {
-      font-size: clamp(1.3rem, 3vw, 2rem);
-      color: #c8c8d2;
-      font-weight: normal;
-      margin-bottom: 25px;
-    }
 
-    .hero p {
-      max-width: 650px;
-      color: #9999a8;
-      font-size: 1.1rem;
-    }
+        /* =====================================================
+           DECORATIVE GOLD DETAILS
+           ===================================================== */
 
-    .buttons {
-      display: flex;
-      gap: 15px;
-      margin-top: 35px;
-      flex-wrap: wrap;
-    }
+        .gold-line {
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px 0 30px;
+        }
 
-    .button {
-      padding: 12px 24px;
-      border-radius: 8px;
-      border: 1px solid #3a3a48;
-      transition: 0.3s;
-    }
+        .gold-line.center {
+            margin: 20px auto 30px;
+        }
 
-    .button.primary {
-      background: #a78bfa;
-      color: #111;
-      border-color: #a78bfa;
-      font-weight: bold;
-    }
+        .ornament {
+            color: var(--gold);
+            font-family: "Playfair Display", serif;
+            font-size: 1.4rem;
+            letter-spacing: 7px;
+        }
 
-    .button:hover {
-      transform: translateY(-2px);
-      border-color: #a78bfa;
-    }
+        .corner-decoration {
+            position: absolute;
+            color: var(--light-gold);
+            font-family: "Playfair Display", serif;
+            font-size: 3rem;
+            opacity: 0.55;
+            pointer-events: none;
+        }
 
-    /* Sections */
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 100px 25px;
-    }
+        .top-left {
+            top: 25px;
+            left: 30px;
+        }
 
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
+        .bottom-right {
+            bottom: 25px;
+            right: 30px;
+            transform: rotate(180deg);
+        }
 
-    .section-intro {
-      color: #9999a8;
-      max-width: 650px;
-      margin-bottom: 45px;
-    }
 
-    /* Cards */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+        /* =====================================================
+           NAVIGATION
+           ===================================================== */
 
-    .card {
-      background: #15151d;
-      border: 1px solid #282833;
-      border-radius: 14px;
-      padding: 30px;
-      transition: 0.3s;
-    }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #514477;
-    }
+            background: rgba(255, 250, 247, 0.94);
+            backdrop-filter: blur(12px);
 
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-    }
+            border-bottom: 1px solid rgba(185, 154, 91, 0.25);
+        }
 
-    .card p {
-      color: #a4a4b1;
-    }
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
 
-    /* Skills */
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
+            padding: 17px 25px;
 
-    .skill {
-      background: #191923;
-      border: 1px solid #333342;
-      padding: 10px 17px;
-      border-radius: 50px;
-      color: #d1d1dc;
-    }
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* Languages */
-    .language {
-      margin-bottom: 25px;
-    }
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--deep-pink);
+        }
 
-    .language-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
 
-    .language-header span:last-child {
-      color: #9b9baa;
-    }
+        .nav-links a {
+            font-size: 0.85rem;
+            color: var(--text);
+            transition: 0.3s ease;
+        }
 
-    .bar {
-      height: 7px;
-      background: #24242e;
-      border-radius: 10px;
-      overflow: hidden;
-    }
+        .nav-links a:hover {
+            color: var(--rose);
+        }
 
-    .fill {
-      height: 100%;
-      background: #a78bfa;
-      border-radius: 10px;
-    }
 
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 50px;
-      align-items: start;
-    }
+        /* =====================================================
+           HERO
+           ===================================================== */
 
-    .about-text {
-      color: #b0b0bc;
-      font-size: 1.05rem;
-    }
+        .hero {
+            min-height: 100vh;
 
-    .highlight {
-      color: #f5f5f7;
-      font-weight: bold;
-    }
+            display: flex;
+            align-items: center;
 
-    /* Contact */
-    .contact-box {
-      background: #15151d;
-      border: 1px solid #282833;
-      border-radius: 16px;
-      padding: 50px;
-      text-align: center;
-    }
+            position: relative;
+            overflow: hidden;
 
-    .contact-box h2 {
-      font-size: 2.3rem;
-      margin-bottom: 15px;
-    }
+            background:
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(244, 220, 228, 0.75),
+                    transparent 28%
+                ),
 
-    .email {
-      display: inline-block;
-      margin-top: 20px;
-      color: #a78bfa;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(216, 194, 140, 0.13),
+                    transparent 25%
+                ),
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 35px 25px;
-      border-top: 1px solid #252530;
-      color: #777784;
-    }
+                var(--cream);
+        }
 
-    /* Mobile */
-    @media (max-width: 700px) {
-      .nav-links {
-        display: none;
-      }
+        .hero::before {
+            content: "✦";
+            position: absolute;
 
-      .cards,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
+            top: 18%;
+            right: 10%;
 
-      h1 {
-        font-size: 4rem;
-      }
+            color: var(--light-gold);
+            font-size: 5rem;
 
-      .contact-box {
-        padding: 35px 20px;
-      }
+            opacity: 0.35;
+        }
 
-      section {
-        padding: 75px 20px;
-      }
-    }
-  </style>
+        .hero::after {
+            content: "❦";
+            position: absolute;
 
+            bottom: 8%;
+            left: 7%;
+
+            color: var(--gold);
+            font-size: 4rem;
+
+            opacity: 0.25;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            width: 100%;
+
+            margin: auto;
+            padding: 130px 25px 90px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            letter-spacing: 4px;
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(4rem, 9vw, 7.5rem);
+
+            line-height: 1.05;
+
+            color: var(--deep-pink);
+
+            font-weight: 500;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(1.4rem, 3vw, 2rem);
+
+            font-weight: 400;
+
+            color: var(--dark);
+
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            max-width: 680px;
+
+            font-size: 1rem;
+
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           BUTTONS
+           ===================================================== */
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+
+            margin-top: 35px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 12px 25px;
+
+            border: 1px solid var(--gold);
+            border-radius: 3px;
+
+            font-size: 0.85rem;
+
+            transition: 0.3s ease;
+        }
+
+        .button.primary {
+            background: var(--deep-pink);
+            color: white;
+
+            border-color: var(--deep-pink);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(143, 74, 99, 0.15);
+        }
+
+
+        /* =====================================================
+           SECTIONS
+           ===================================================== */
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 105px 25px;
+
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background: var(--blush);
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+
+            font-weight: 500;
+
+            color: var(--deep-pink);
+
+            line-height: 1.2;
+        }
+
+        .section-intro {
+            max-width: 650px;
+
+            color: var(--muted);
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =====================================================
+           ABOUT
+           ===================================================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1.3fr 1fr;
+
+            gap: 65px;
+
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .highlight {
+            color: var(--deep-pink);
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           CARDS
+           ===================================================== */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+        .card {
+            position: relative;
+
+            background: rgba(255, 255, 255, 0.75);
+
+            border: 1px solid rgba(185, 154, 91, 0.35);
+
+            padding: 32px;
+
+            border-radius: 5px;
+
+            transition: 0.35s ease;
+        }
+
+        .card::before {
+            content: "✦";
+
+            position: absolute;
+
+            top: 12px;
+            right: 17px;
+
+            color: var(--gold);
+
+            font-size: 0.8rem;
+
+            opacity: 0.7;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: var(--gold);
+
+            box-shadow:
+                0 15px 35px rgba(143, 74, 99, 0.08);
+        }
+
+        .card h3 {
+            font-family: "Playfair Display", serif;
+
+            color: var(--deep-pink);
+
+            font-size: 1.4rem;
+
+            font-weight: 500;
+
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+
+        /* =====================================================
+           SKILLS
+           ===================================================== */
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 10px 18px;
+
+            background: white;
+
+            border: 1px solid rgba(185, 154, 91, 0.45);
+
+            border-radius: 50px;
+
+            color: var(--text);
+
+            font-size: 0.82rem;
+
+            transition: 0.3s ease;
+        }
+
+        .skill:hover {
+            background: var(--soft-pink);
+            border-color: var(--gold);
+        }
+
+
+        /* =====================================================
+           LANGUAGES
+           ===================================================== */
+
+        .language {
+            max-width: 750px;
+
+            margin-bottom: 28px;
+        }
+
+        .language-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+        }
+
+        .language-header span:first-child {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .language-header span:last-child {
+            color: var(--gold);
+
+            font-size: 0.8rem;
+        }
+
+        .bar {
+            height: 6px;
+
+            background: #eadde1;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--deep-pink),
+                    var(--gold)
+                );
+
+            border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           EDUCATION / EXPERIENCE
+           ===================================================== */
+
+        .timeline-card {
+            border-left: 2px solid var(--gold);
+
+            padding: 5px 0 5px 30px;
+
+            margin-bottom: 30px;
+
+            position: relative;
+        }
+
+        .timeline-card::before {
+            content: "";
+
+            width: 10px;
+            height: 10px;
+
+            background: var(--cream);
+
+            border: 2px solid var(--gold);
+
+            border-radius: 50%;
+
+            position: absolute;
+
+            left: -7px;
+            top: 8px;
+        }
+
+        .timeline-card h3 {
+            font-family: "Playfair Display", serif;
+
+            color: var(--deep-pink);
+
+            font-size: 1.5rem;
+
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           CONTACT
+           ===================================================== */
+
+        .contact-section {
+            padding-bottom: 120px;
+        }
+
+        .contact-box {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8e7ed,
+                    #fffaf7
+                );
+
+            border: 1px solid rgba(185, 154, 91, 0.5);
+
+            padding: 65px 40px;
+
+            text-align: center;
+
+            border-radius: 6px;
+
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: "❦";
+
+            position: absolute;
+
+            top: 15px;
+            left: 25px;
+
+            color: var(--gold);
+
+            font-size: 2rem;
+
+            opacity: 0.4;
+        }
+
+        .contact-box::after {
+            content: "❦";
+
+            position: absolute;
+
+            bottom: 10px;
+            right: 25px;
+
+            color: var(--gold);
+
+            font-size: 2rem;
+
+            opacity: 0.4;
+
+            transform: rotate(180deg);
+        }
+
+        .contact-box h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 2.7rem;
+
+            color: var(--deep-pink);
+
+            font-weight: 500;
+        }
+
+        .contact-box p {
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            color: var(--muted);
+        }
+
+        .email {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: var(--deep-pink);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 1.25rem;
+
+            border-bottom: 1px solid var(--gold);
+
+            padding-bottom: 3px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: var(--deep-pink);
+
+            color: #f8e7ed;
+
+            font-size: 0.8rem;
+        }
+
+        footer .ornament {
+            color: var(--light-gold);
+
+            display: block;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .cards,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .contact-box {
+                padding: 50px 25px;
+            }
+
+            .corner-decoration {
+                display: none;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-  <!-- Navigation -->
-
-  <nav>
-    <div class="nav-container">
-      <a href="#home" class="logo">Pujeetha.</a>
-
-```
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#volunteering">Volunteering</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</div>
-```
-
-  </nav>
-
-  <!-- Hero -->
-
-  <main id="home">
-    <div class="hero">
-      <div class="hero-content">
-
-```
-    <div class="eyebrow">Student • Reader • Writer • Language Learner</div>
-
-    <h1>Hello, I'm Pujeetha.</h1>
-
-    <h2>
-      Integrated Business Management Student
-    </h2>
-
-    <p>
-      I'm a Bachelor's student studying Integrated Business Management
-      with a passion for reading, writing, communication, and languages.
-      I'm always interested in learning something new and developing
-      skills that help me connect with people and ideas.
-    </p>
-
-    <div class="buttons">
-      <a href="#about" class="button primary">Explore My Portfolio</a>
-      <a href="#contact" class="button">Get In Touch</a>
-    </div>
-
-  </div>
-</div>
-```
-
-  </main>
-
-  <!-- About -->
-
-  <section id="about">
-
-```
-<div class="about-grid">
-
-  <div>
-    <div class="eyebrow">About Me</div>
-    <h2 class="section-title">A curious mind with a love for learning.</h2>
-
-    <p class="about-text">
-      I am currently pursuing my Bachelor's degree in
-      <span class="highlight">Integrated Business Management (IBM)</span>.
-      My interests extend beyond academics, particularly into reading,
-      writing, languages, and communication.
-      <br><br>
-      I enjoy exploring different ways of communicating and connecting
-      with people. My experience with multiple languages and sign
-      languages has helped me develop an appreciation for different
-      perspectives and forms of expression.
-      <br><br>
-      I am also someone who enjoys continuously learning and expanding
-      my abilities, which is why I am currently studying both Korean
-      and Korean Sign Language (KSL).
-    </p>
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>📚 Reading</h3>
-      <p>
-        I enjoy reading and discovering new stories, ideas, and
-        perspectives.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>✍️ Writing</h3>
-      <p>
-        Writing is one of my creative interests and a way I enjoy
-        expressing ideas.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🌎 Languages</h3>
-      <p>
-        I enjoy learning languages and exploring different forms
-        of communication.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🤝 Communication</h3>
-      <p>
-        I value interpersonal communication and building positive
-        connections with others.
-      </p>
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </section>
-
-  <!-- Education -->
-
-  <section id="education">
-
-```
-<div class="eyebrow">Education</div>
-<h2 class="section-title">Academic Background</h2>
-
-<div class="cards">
-
-  <div class="card">
-    <h3>Bachelor's Degree</h3>
-    <p>
-      <strong>Integrated Business Management (IBM)</strong>
-    </p>
-    <p>
-      Currently pursuing my Bachelor's degree, developing knowledge
-      across business, management, communication, and related fields.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>Continuous Learning</h3>
-    <p>
-      Alongside my university studies, I am currently learning
-      <strong>Korean</strong> and <strong>Korean Sign Language (KSL)</strong>.
-    </p>
-  </div>
-
-</div>
-```
-
-  </section>
-
-  <!-- Skills -->
-
-  <section id="skills">
-
-```
-<div class="eyebrow">What I Bring</div>
-<h2 class="section-title">Skills</h2>
-
-<p class="section-intro">
-  A combination of communication, interpersonal, language, and
-  creative skills that I continue to develop.
-</p>
-
-<div class="skill-list">
-  <span class="skill">Interpersonal Skills</span>
-  <span class="skill">Communication</span>
-  <span class="skill">English</span>
-  <span class="skill">Malayalam</span>
-  <span class="skill">Tamil</span>
-  <span class="skill">American Sign Language (ASL)</span>
-  <span class="skill">Korean — Learning</span>
-  <span class="skill">Korean Sign Language — Learning</span>
-  <span class="skill">Reading</span>
-  <span class="skill">Writing</span>
-  <span class="skill">Teamwork</span>
-  <span class="skill">Adaptability</span>
-</div>
-```
-
-  </section>
-
-  <!-- Languages -->
-
-  <section>
-
-```
-<div class="eyebrow">Communication</div>
-<h2 class="section-title">Languages</h2>
-
-<p class="section-intro">
-  I enjoy communicating across different languages and am currently
-  expanding my language abilities.
-</p>
-
-<div class="language">
-  <div class="language-header">
-    <span>English</span>
-    <span>Fluent</span>
-  </div>
-  <div class="bar">
-    <div class="fill" style="width: 100%;"></div>
-  </div>
-</div>
-
-<div class="language">
-  <div class="language-header">
-    <span>Malayalam</span>
-    <span>Fluent</span>
-  </div>
-  <div class="bar">
-    <div class="fill" style="width: 100%;"></div>
-  </div>
-</div>
-
-<div class="language">
-  <div class="language-header">
-    <span>Tamil</span>
-    <span>Fluent</span>
-  </div>
-  <div class="bar">
-    <div class="fill" style="width: 100%;"></div>
-  </div>
-</div>
-
-<div class="language">
-  <div class="language-header">
-    <span>American Sign Language (ASL)</span>
-    <span>Fluent</span>
-  </div>
-  <div class="bar">
-    <div class="fill" style="width: 100%;"></div>
-  </div>
-</div>
-
-<div class="language">
-  <div class="language-header">
-    <span>Korean</span>
-    <span>Currently Learning</span>
-  </div>
-  <div class="bar">
-    <div class="fill" style="width: 35%;"></div>
-  </div>
-</div>
-
-<div class="language">
-  <div class="language-header">
-    <span>Korean Sign Language (KSL)</span>
-    <span>Currently Learning</span>
-  </div>
-  <div class="bar">
-    <div class="fill" style="width: 25%;"></div>
-  </div>
-</div>
-```
-
-  </section>
-
-  <!-- Volunteering -->
-
-  <section id="volunteering">
-
-```
-<div class="eyebrow">Experience</div>
-<h2 class="section-title">Volunteering</h2>
-
-<div class="cards">
-
-  <div class="card">
-    <h3>20+ Hours of Volunteering</h3>
-    <p>
-      I have completed more than 20 hours of volunteering,
-      gaining experience in contributing to activities,
-      working with others, and engaging with my community.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>What I Learned</h3>
-    <p>
-      Volunteering has helped me strengthen my interpersonal skills,
-      communication, teamwork, responsibility, and willingness
-      to contribute.
-    </p>
-  </div>
-
-</div>
-```
-
-  </section>
-
-  <!-- Interests -->
-
-  <section>
-
-```
-<div class="eyebrow">Beyond Academics</div>
-<h2 class="section-title">Interests</h2>
-
-<div class="cards">
-
-  <div class="card">
-    <h3>📖 Reading</h3>
-    <p>
-      Exploring books and stories is one of my favourite ways
-      to spend my time and discover new perspectives.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>📝 Writing</h3>
-    <p>
-      I enjoy writing and using creativity to express thoughts,
-      ideas, and stories.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>🤟 Sign Languages</h3>
-    <p>
-      I have developed fluency in ASL and am currently expanding
-      my knowledge by learning KSL.
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>🗣️ Languages</h3>
-    <p>
-      Learning languages allows me to explore different cultures
-      and communicate with a wider range of people.
-    </p>
-  </div>
-
-</div>
-```
-
-  </section>
-
-  <!-- Contact -->
-
-  <section id="contact">
-
-```
-<div class="contact-box">
-
-  <div class="eyebrow">Contact</div>
-
-  <h2>Let's connect.</h2>
-
-  <p>
-    Whether you'd like to discuss academics, opportunities,
-    collaboration, or simply connect, feel free to reach out.
-  </p>
-
-  <a class="email" href="mailto:abba@gmail.com">
-    abba@gmail.com
-  </a>
-
-</div>
-```
-
-  </section>
-
-  <!-- Footer -->
-
-  <footer>
-    <p>© 2026 Pujeetha. Built with HTML & CSS.</p>
-  </footer>
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                Pujeetha.
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#volunteering">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <main id="home">
+
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Student • Reader • Writer • Language Learner
+                </div>
+
+                <h1>
+                    Hello, I'm<br>
+                    Pujeetha.
+                </h1>
+
+                <div class="ornament">
+                    ── ✦ ──
+                </div>
+
+                <h2>
+                    Integrated Business Management Student
+                </h2>
+
+                <p class="hero-description">
+                    I'm a Bachelor's student studying Integrated Business
+                    Management with a passion for reading, writing,
+                    communication, and languages. I'm always interested
+                    in learning something new and developing skills that
+                    help me connect with people and ideas.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#about" class="button primary">
+                        Explore My Portfolio
+                    </a>
+
+                    <a href="#contact" class="button">
+                        Get In Touch
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section id="about">
+
+        <span class="corner-decoration top-left">❦</span>
+        <span class="corner-decoration bottom-right">❦</span>
+
+        <div class="about-grid">
+
+            <div>
+
+                <div class="eyebrow">
+                    About Me
+                </div>
+
+                <h2 class="section-title">
+                    A curious mind with a love for learning.
+                </h2>
+
+                <div class="gold-line"></div>
+
+                <p class="about-text">
+
+                    I am currently pursuing my Bachelor's degree in
+                    <span class="highlight">
+                        Integrated Business Management (IBM)
+                    </span>.
+
+                    My interests extend beyond academics, particularly
+                    into reading, writing, languages, and communication.
+
+                    <br><br>
+
+                    I enjoy exploring different ways of communicating
+                    and connecting with people. My experience with
+                    multiple languages and sign languages has helped me
+                    develop an appreciation for different perspectives
+                    and forms of expression.
+
+                    <br><br>
+
+                    I am also someone who enjoys continuously learning
+                    and expanding my abilities, which is why I am
+                    currently studying both
+                    <span class="highlight">Korean</span> and
+                    <span class="highlight">
+                        Korean Sign Language (KSL)
+                    </span>.
+
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Reading</h3>
+
+                    <p>
+                        I enjoy reading and discovering new stories,
+                        ideas, and perspectives.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Writing</h3>
+
+                    <p>
+                        Writing is one of my creative interests and
+                        a way I enjoy expressing ideas.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Languages</h3>
+
+                    <p>
+                        I enjoy learning languages and exploring
+                        different forms of communication.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Communication</h3>
+
+                    <p>
+                        I value interpersonal communication and
+                        building positive connections with others.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EDUCATION
+         ===================================================== -->
+
+    <section id="education">
+
+        <div class="eyebrow">
+            Education
+        </div>
+
+        <h2 class="section-title">
+            Academic Background
+        </h2>
+
+        <div class="gold-line"></div>
+
+
+        <div class="timeline-card">
+
+            <h3>
+                Bachelor's Degree
+            </h3>
+
+            <p>
+                <strong>
+                    Integrated Business Management (IBM)
+                </strong>
+            </p>
+
+            <p>
+                Currently pursuing my Bachelor's degree, developing
+                knowledge across business, management, communication,
+                and related fields.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-card">
+
+            <h3>
+                Continuous Learning
+            </h3>
+
+            <p>
+                Alongside my university studies, I am currently learning
+                <strong>Korean</strong> and
+                <strong>Korean Sign Language (KSL)</strong>.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SKILLS
+         ===================================================== -->
+
+    <section id="skills">
+
+        <div class="eyebrow">
+            What I Bring
+        </div>
+
+        <h2 class="section-title">
+            Skills
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <p class="section-intro">
+            A combination of communication, interpersonal, language,
+            and creative skills that I continue to develop.
+        </p>
+
+
+        <div class="skill-list">
+
+            <span class="skill">
+                Interpersonal Skills
+            </span>
+
+            <span class="skill">
+                Communication
+            </span>
+
+            <span class="skill">
+                English
+            </span>
+
+            <span class="skill">
+                Malayalam
+            </span>
+
+            <span class="skill">
+                Tamil
+            </span>
+
+            <span class="skill">
+                American Sign Language (ASL)
+            </span>
+
+            <span class="skill">
+                Korean — Learning
+            </span>
+
+            <span class="skill">
+                Korean Sign Language — Learning
+            </span>
+
+            <span class="skill">
+                Reading
+            </span>
+
+            <span class="skill">
+                Writing
+            </span>
+
+            <span class="skill">
+                Teamwork
+            </span>
+
+            <span class="skill">
+                Adaptability
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LANGUAGES
+         ===================================================== -->
+
+    <section id="languages">
+
+        <div class="eyebrow">
+            Communication
+        </div>
+
+        <h2 class="section-title">
+            Languages
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <p class="section-intro">
+            I enjoy communicating across different languages and
+            am currently expanding my language abilities.
+        </p>
+
+
+        <!-- English -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    English
+                </span>
+
+                <span>
+                    Fluent
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 100%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Malayalam -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    Malayalam
+                </span>
+
+                <span>
+                    Fluent
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 100%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Tamil -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    Tamil
+                </span>
+
+                <span>
+                    Fluent
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 100%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- ASL -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    American Sign Language (ASL)
+                </span>
+
+                <span>
+                    Fluent
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 100%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Korean -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    Korean
+                </span>
+
+                <span>
+                    Currently Learning
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 35%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- KSL -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    Korean Sign Language (KSL)
+                </span>
+
+                <span>
+                    Currently Learning
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 25%;"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         VOLUNTEERING
+         ===================================================== -->
+
+    <section id="volunteering">
+
+        <div class="eyebrow">
+            Experience
+        </div>
+
+        <h2 class="section-title">
+            Volunteering
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    20+ Hours of Volunteering
+                </h3>
+
+                <p>
+                    I have completed more than 20 hours of volunteering,
+                    gaining experience in contributing to activities,
+                    working with others, and engaging with my community.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    What I Learned
+                </h3>
+
+                <p>
+                    Volunteering has helped me strengthen my interpersonal
+                    skills, communication, teamwork, responsibility,
+                    and willingness to contribute.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         INTERESTS
+         ===================================================== -->
+
+    <section>
+
+        <div class="eyebrow">
+            Beyond Academics
+        </div>
+
+        <h2 class="section-title">
+            Interests
+        </h2>
+
+        <div class="gold-line"></div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Reading
+                </h3>
+
+                <p>
+                    Exploring books and stories is one of my favourite
+                    ways to spend my time and discover new perspectives.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Writing
+                </h3>
+
+                <p>
+                    I enjoy writing and using creativity to express
+                    thoughts, ideas, and stories.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Sign Languages
+                </h3>
+
+                <p>
+                    I have developed fluency in ASL and am currently
+                    expanding my knowledge by learning KSL.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Languages
+                </h3>
+
+                <p>
+                    Learning languages allows me to explore different
+                    cultures and communicate with a wider range of people.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+
+    <section id="contact" class="contact-section">
+
+        <div class="contact-box">
+
+            <div class="ornament">
+                ❦
+            </div>
+
+            <div class="eyebrow">
+                Contact
+            </div>
+
+            <h2>
+                Let's connect.
+            </h2>
+
+            <div class="gold-line center"></div>
+
+            <p>
+                Whether you'd like to discuss academics, opportunities,
+                collaboration, or simply connect, feel free to reach out.
+            </p>
+
+            <a
+                class="email"
+                href="mailto:abba@gmail.com"
+            >
+                abba@gmail.com
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <span class="ornament">
+            ✦ ── ❦ ── ✦
+        </span>
+
+        <p>
+            © 2026 Pujeetha. Built with HTML & CSS.
+        </p>
+
+    </footer>
+
 
 </body>
 </html>
