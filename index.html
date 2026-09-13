@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pujeetha's student portfolio — Integrated Business Management student, writer, reader, and language learner.">
+  <title>Pujeetha | Student Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d0d12;
+      color: #f5f5f7;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(13, 13, 18, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #252530;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 18px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #b8b8c5;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 120px 25px 80px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .eyebrow {
+      color: #a78bfa;
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: #c8c8d2;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #9999a8;
+      font-size: 1.1rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 35px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 1px solid #3a3a48;
+      transition: 0.3s;
+    }
+
+    .button.primary {
+      background: #a78bfa;
+      color: #111;
+      border-color: #a78bfa;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: #a78bfa;
+    }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 100px 25px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .section-intro {
+      color: #9999a8;
+      max-width: 650px;
+      margin-bottom: 45px;
+    }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #15151d;
+      border: 1px solid #282833;
+      border-radius: 14px;
+      padding: 30px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #514477;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: #a4a4b1;
+    }
+
+    /* Skills */
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: #191923;
+      border: 1px solid #333342;
+      padding: 10px 17px;
+      border-radius: 50px;
+      color: #d1d1dc;
+    }
+
+    /* Languages */
+    .language {
+      margin-bottom: 25px;
+    }
+
+    .language-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .language-header span:last-child {
+      color: #9b9baa;
+    }
+
+    .bar {
+      height: 7px;
+      background: #24242e;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      background: #a78bfa;
+      border-radius: 10px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    .about-text {
+      color: #b0b0bc;
+      font-size: 1.05rem;
+    }
+
+    .highlight {
+      color: #f5f5f7;
+      font-weight: bold;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: #15151d;
+      border: 1px solid #282833;
+      border-radius: 16px;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+    }
+
+    .email {
+      display: inline-block;
+      margin-top: 20px;
+      color: #a78bfa;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 35px 25px;
+      border-top: 1px solid #252530;
+      color: #777784;
+    }
+
+    /* Mobile */
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      .cards,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 4rem;
+      }
+
+      .contact-box {
+        padding: 35px 20px;
+      }
+
+      section {
+        padding: 75px 20px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+
+  <nav>
+    <div class="nav-container">
+      <a href="#home" class="logo">Pujeetha.</a>
+
+```
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#volunteering">Volunteering</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+```
+
+  </nav>
+
+  <!-- Hero -->
+
+  <main id="home">
+    <div class="hero">
+      <div class="hero-content">
+
+```
+    <div class="eyebrow">Student • Reader • Writer • Language Learner</div>
+
+    <h1>Hello, I'm Pujeetha.</h1>
+
+    <h2>
+      Integrated Business Management Student
+    </h2>
+
+    <p>
+      I'm a Bachelor's student studying Integrated Business Management
+      with a passion for reading, writing, communication, and languages.
+      I'm always interested in learning something new and developing
+      skills that help me connect with people and ideas.
+    </p>
+
+    <div class="buttons">
+      <a href="#about" class="button primary">Explore My Portfolio</a>
+      <a href="#contact" class="button">Get In Touch</a>
+    </div>
+
+  </div>
+</div>
+```
+
+  </main>
+
+  <!-- About -->
+
+  <section id="about">
+
+```
+<div class="about-grid">
+
+  <div>
+    <div class="eyebrow">About Me</div>
+    <h2 class="section-title">A curious mind with a love for learning.</h2>
+
+    <p class="about-text">
+      I am currently pursuing my Bachelor's degree in
+      <span class="highlight">Integrated Business Management (IBM)</span>.
+      My interests extend beyond academics, particularly into reading,
+      writing, languages, and communication.
+      <br><br>
+      I enjoy exploring different ways of communicating and connecting
+      with people. My experience with multiple languages and sign
+      languages has helped me develop an appreciation for different
+      perspectives and forms of expression.
+      <br><br>
+      I am also someone who enjoys continuously learning and expanding
+      my abilities, which is why I am currently studying both Korean
+      and Korean Sign Language (KSL).
+    </p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>📚 Reading</h3>
+      <p>
+        I enjoy reading and discovering new stories, ideas, and
+        perspectives.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>✍️ Writing</h3>
+      <p>
+        Writing is one of my creative interests and a way I enjoy
+        expressing ideas.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🌎 Languages</h3>
+      <p>
+        I enjoy learning languages and exploring different forms
+        of communication.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🤝 Communication</h3>
+      <p>
+        I value interpersonal communication and building positive
+        connections with others.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- Education -->
+
+  <section id="education">
+
+```
+<div class="eyebrow">Education</div>
+<h2 class="section-title">Academic Background</h2>
+
+<div class="cards">
+
+  <div class="card">
+    <h3>Bachelor's Degree</h3>
+    <p>
+      <strong>Integrated Business Management (IBM)</strong>
+    </p>
+    <p>
+      Currently pursuing my Bachelor's degree, developing knowledge
+      across business, management, communication, and related fields.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Continuous Learning</h3>
+    <p>
+      Alongside my university studies, I am currently learning
+      <strong>Korean</strong> and <strong>Korean Sign Language (KSL)</strong>.
+    </p>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- Skills -->
+
+  <section id="skills">
+
+```
+<div class="eyebrow">What I Bring</div>
+<h2 class="section-title">Skills</h2>
+
+<p class="section-intro">
+  A combination of communication, interpersonal, language, and
+  creative skills that I continue to develop.
+</p>
+
+<div class="skill-list">
+  <span class="skill">Interpersonal Skills</span>
+  <span class="skill">Communication</span>
+  <span class="skill">English</span>
+  <span class="skill">Malayalam</span>
+  <span class="skill">Tamil</span>
+  <span class="skill">American Sign Language (ASL)</span>
+  <span class="skill">Korean — Learning</span>
+  <span class="skill">Korean Sign Language — Learning</span>
+  <span class="skill">Reading</span>
+  <span class="skill">Writing</span>
+  <span class="skill">Teamwork</span>
+  <span class="skill">Adaptability</span>
+</div>
+```
+
+  </section>
+
+  <!-- Languages -->
+
+  <section>
+
+```
+<div class="eyebrow">Communication</div>
+<h2 class="section-title">Languages</h2>
+
+<p class="section-intro">
+  I enjoy communicating across different languages and am currently
+  expanding my language abilities.
+</p>
+
+<div class="language">
+  <div class="language-header">
+    <span>English</span>
+    <span>Fluent</span>
+  </div>
+  <div class="bar">
+    <div class="fill" style="width: 100%;"></div>
+  </div>
+</div>
+
+<div class="language">
+  <div class="language-header">
+    <span>Malayalam</span>
+    <span>Fluent</span>
+  </div>
+  <div class="bar">
+    <div class="fill" style="width: 100%;"></div>
+  </div>
+</div>
+
+<div class="language">
+  <div class="language-header">
+    <span>Tamil</span>
+    <span>Fluent</span>
+  </div>
+  <div class="bar">
+    <div class="fill" style="width: 100%;"></div>
+  </div>
+</div>
+
+<div class="language">
+  <div class="language-header">
+    <span>American Sign Language (ASL)</span>
+    <span>Fluent</span>
+  </div>
+  <div class="bar">
+    <div class="fill" style="width: 100%;"></div>
+  </div>
+</div>
+
+<div class="language">
+  <div class="language-header">
+    <span>Korean</span>
+    <span>Currently Learning</span>
+  </div>
+  <div class="bar">
+    <div class="fill" style="width: 35%;"></div>
+  </div>
+</div>
+
+<div class="language">
+  <div class="language-header">
+    <span>Korean Sign Language (KSL)</span>
+    <span>Currently Learning</span>
+  </div>
+  <div class="bar">
+    <div class="fill" style="width: 25%;"></div>
+  </div>
+</div>
+```
+
+  </section>
+
+  <!-- Volunteering -->
+
+  <section id="volunteering">
+
+```
+<div class="eyebrow">Experience</div>
+<h2 class="section-title">Volunteering</h2>
+
+<div class="cards">
+
+  <div class="card">
+    <h3>20+ Hours of Volunteering</h3>
+    <p>
+      I have completed more than 20 hours of volunteering,
+      gaining experience in contributing to activities,
+      working with others, and engaging with my community.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>What I Learned</h3>
+    <p>
+      Volunteering has helped me strengthen my interpersonal skills,
+      communication, teamwork, responsibility, and willingness
+      to contribute.
+    </p>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- Interests -->
+
+  <section>
+
+```
+<div class="eyebrow">Beyond Academics</div>
+<h2 class="section-title">Interests</h2>
+
+<div class="cards">
+
+  <div class="card">
+    <h3>📖 Reading</h3>
+    <p>
+      Exploring books and stories is one of my favourite ways
+      to spend my time and discover new perspectives.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>📝 Writing</h3>
+    <p>
+      I enjoy writing and using creativity to express thoughts,
+      ideas, and stories.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🤟 Sign Languages</h3>
+    <p>
+      I have developed fluency in ASL and am currently expanding
+      my knowledge by learning KSL.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🗣️ Languages</h3>
+    <p>
+      Learning languages allows me to explore different cultures
+      and communicate with a wider range of people.
+    </p>
+  </div>
+
+</div>
+```
+
+  </section>
+
+  <!-- Contact -->
+
+  <section id="contact">
+
+```
+<div class="contact-box">
+
+  <div class="eyebrow">Contact</div>
+
+  <h2>Let's connect.</h2>
+
+  <p>
+    Whether you'd like to discuss academics, opportunities,
+    collaboration, or simply connect, feel free to reach out.
+  </p>
+
+  <a class="email" href="mailto:abba@gmail.com">
+    abba@gmail.com
+  </a>
+
+</div>
+```
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer>
+    <p>© 2026 Pujeetha. Built with HTML & CSS.</p>
+  </footer>
+
+</body>
+</html>
