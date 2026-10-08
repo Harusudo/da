@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Shovel</title>
+<style>
+  :root{
+    --sand:#d8b978;
+    --sand-dark:#b58d4e;
+    --wood:#5a341d;
+    --ink:#2f2118;
+    --cream:#fff8e8;
+    --gold:#f2c75c;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    min-height:100vh;
+    font-family:"Trebuchet MS","Segoe UI",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 20% 10%,rgba(255,255,255,.75),transparent 24%),
+      radial-gradient(circle at 90% 90%,rgba(255,231,177,.45),transparent 28%),
+      linear-gradient(135deg,#f6e7c5 0%,#e7c990 48%,#d3ad6e 100%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:24px;
+  }
+  .game{
+    width:min(1120px,100%);
+  }
+  header{
+    background:rgba(255,251,241,.94);
+    border:2px solid rgba(104,67,35,.55);
+    border-radius:24px;
+    padding:20px 22px 16px;
+    box-shadow:0 12px 35px rgba(84,50,22,.18);
+    backdrop-filter:blur(5px);
+  }
+  h1{
+    margin:0 0 13px;
+    text-align:center;
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(34px,5vw,56px);
+    font-weight:700;
+    letter-spacing:3px;
+    color:#5b3823;
+    text-shadow:0 2px 0 #fff4d8;
+  }
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr) auto;
+    gap:8px;
+    align-items:center;
+  }
+  .stat{
+    background:linear-gradient(145deg,#fff7df,#f1dbab);
+    border:1px solid rgba(102,64,30,.45);
+    border-radius:14px;
+    padding:9px;
+    text-align:center;
+    font-weight:700;
+    box-shadow:0 3px 10px rgba(88,54,25,.08);
+  }
+  .stat span{
+    display:block;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.6px;
+    color:#856546;
+    margin-bottom:2px;
+  }
+  .stat strong{
+    font-size:23px;
+    color:#4f301d;
+  }
+  #hintBtn{
+    width:62px;height:62px;
+    border:1px solid rgba(111,70,31,.55);
+    border-radius:50%;
+    background:linear-gradient(145deg,#fff7d9,#e8c777);
+    cursor:pointer;
+    font-size:28px;
+    box-shadow:0 5px 12px rgba(90,52,22,.15);
+    transition:transform .18s ease,box-shadow .18s ease;
+  }
+  #hintBtn:hover{transform:translateY(-2px);box-shadow:0 8px 15px rgba(90,52,22,.18)}
+  #hintBtn:active{transform:translateY(1px)}
+  #hintBtn:disabled{opacity:.45;cursor:not-allowed}
+  .wordbar{
+    margin-top:13px;
+    background:rgba(250,239,210,.72);
+    border:1px solid rgba(112,73,38,.25);
+    border-radius:15px;
+    padding:9px 12px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    justify-content:center;
+  }
+  .word{
+    padding:6px 11px;
+    border-radius:999px;
+    background:#f4e2b8;
+    border:1px solid rgba(112,73,38,.38);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.9px;
+    color:#654126;
+    box-shadow:0 2px 5px rgba(88,54,25,.07);
+  }
+  .word.found{
+    background:#9dcb82;
+    text-decoration:line-through;
+    opacity:.8;
+  }
+  .arena{
+    margin-top:17px;
+    padding:16px;
+    background:
+      repeating-linear-gradient(0deg,rgba(255,214,145,.08) 0 2px,transparent 2px 8px),
+      linear-gradient(135deg,#70472b,#56331f);
+    border:5px solid #4a2b19;
+    border-radius:22px;
+    box-shadow:
+      inset 0 0 0 2px rgba(217,164,93,.5),
+      inset 0 0 22px rgba(38,20,10,.35),
+      0 13px 28px rgba(50,25,10,.22);
+  }
+  .sandpit{
+    width:100%;
+    max-width:850px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(9,1fr);
+    grid-template-rows:repeat(7,1fr);
+    aspect-ratio:9/7;
+    overflow:hidden;
+    border:5px solid #3b2114;
+    background:#d6b36d;
+    touch-action:manipulation;
+  }
+  .cell{
+    position:relative;
+    min-width:0;
+    min-height:0;
+    border:1px solid rgba(73,43,20,.28);
+    background:#f2e5c4;
+    overflow:hidden;
+    cursor:crosshair;
+    user-select:none;
+  }
+  /* Sand that pours from the dug square toward the bottom edge of the whole pit. */
+  .cell.waterfall::after{
+    content:"";
+    position:absolute;
+    z-index:5;
+    left:18%;
+    width:64%;
+    top:72%;
+    height:0;
+    pointer-events:none;
+    background:
+      radial-gradient(circle,rgba(241,215,164,.95) 0 2px,transparent 3px) 0 0/9px 12px,
+      linear-gradient(90deg,rgba(238,211,157,.05),rgba(238,211,157,.85),rgba(238,211,157,.05));
+    filter:blur(.2px);
+    animation:boardWaterfall .85s cubic-bezier(.2,.7,.25,1) forwards;
+  }
+
+  @keyframes boardWaterfall{
+    0%{height:0;opacity:0;transform:translateY(0)}
+    12%{height:20%;opacity:.95}
+    45%{height:75%;opacity:.9;transform:translateY(5%)}
+    78%{height:140%;opacity:.65;transform:translateY(12%)}
+    100%{height:220%;opacity:0;transform:translateY(22%)}
+  }
+
+  .letter{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Arial,sans-serif;
+    font-size:clamp(18px,3.6vw,36px);
+    font-weight:900;
+    color:#3a281c;
+    background:#f1dfb5;
+  }
+  .sand{
+    position:absolute;
+    z-index:2;
+    inset:-8%;
+    background:
+      radial-gradient(circle at 12% 18%,rgba(126,101,63,.20) 0 1.1px,transparent 1.8px),
+      radial-gradient(circle at 72% 30%,rgba(255,255,240,.70) 0 1px,transparent 1.8px),
+      radial-gradient(circle at 42% 76%,rgba(142,112,67,.17) 0 1px,transparent 1.8px),
+      radial-gradient(circle at 87% 83%,rgba(255,255,245,.55) 0 1.2px,transparent 1.9px),
+      repeating-linear-gradient(25deg,rgba(125,101,63,.07) 0 1px,transparent 1px 5px),
+      linear-gradient(145deg,#f7e8bb,#edd39a 48%,#f3dfac);
+    box-shadow:inset 0 0 9px rgba(125,92,42,.13);
+  }
+
+  /* The sand peels away and pours downward like a tiny waterfall. */
+  .cell.dug .sand{
+    animation:sandWaterfall .72s cubic-bezier(.18,.75,.25,1) forwards;
+    transform-origin:50% 0%;
+  }
+  @keyframes sandWaterfall{
+    0%{
+      transform:translateY(0) scaleY(1);
+      clip-path:inset(0 0 0 0);
+      opacity:1;
+    }
+    18%{
+      transform:translateY(5%) scaleY(.98);
+      clip-path:inset(0 0 4% 0);
+      opacity:1;
+    }
+    55%{
+      transform:translateY(48%) scaleY(.72);
+      clip-path:inset(0 0 32% 0);
+      opacity:.82;
+    }
+    82%{
+      transform:translateY(105%) scaleY(.42);
+      clip-path:inset(0 0 62% 0);
+      opacity:.45;
+    }
+    100%{
+      transform:translateY(145%) scaleY(.18);
+      clip-path:inset(0 0 82% 0);
+      opacity:0;
+    }
+  }
+
+  /* Hint tiles keep shaking until the player actually digs them. */
+  .cell.hint .sand{
+    animation:hintShake .62s ease-in-out infinite;
+  }
+  @keyframes hintShake{
+    0%,100%{transform:translate(0,0) rotate(0)}
+    15%{transform:translate(-2px,1px) rotate(-1deg)}
+    30%{transform:translate(3px,-1px) rotate(1deg)}
+    45%{transform:translate(-3px,-1px) rotate(-1deg)}
+    60%{transform:translate(2px,1px) rotate(1deg)}
+    75%{transform:translate(-1px,0) rotate(0)}
+  }
+  .grain{
+    position:absolute;
+    z-index:3;
+    width:3px;height:3px;
+    border-radius:50%;
+    background:#c0914c;
+    pointer-events:none;
+    animation:grainFall .9s cubic-bezier(.2,.7,.25,1) forwards;
+  }
+  @keyframes grainFall{
+    from{transform:translate(0,0);opacity:1}
+    to{transform:translate(var(--dx),var(--dy));opacity:0}
+  }
+  .controls{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-top:14px;
+  }
+  button.control{
+    border:1px solid rgba(102,64,30,.45);
+    background:linear-gradient(145deg,#fff8df,#edd39a);
+    color:#56351f;
+    padding:10px 18px;
+    border-radius:999px;
+    font:700 14px "Trebuchet MS","Segoe UI",sans-serif;
+    cursor:pointer;
+    box-shadow:0 4px 10px rgba(75,43,18,.12);
+    transition:transform .16s ease,box-shadow .16s ease;
+  }
+  button.control:hover{transform:translateY(-2px);box-shadow:0 7px 14px rgba(75,43,18,.16)}
+  button.control:active{transform:translateY(1px)}
+  .tip{
+    text-align:center;
+    color:#6e492d;
+    margin:11px 0 0;
+    font-size:13px;
+    letter-spacing:.2px;
+  }
+  .overlay{
+    position:fixed;inset:0;background:rgba(35,20,10,.68);
+    display:none;align-items:center;justify-content:center;padding:20px;z-index:20;
+  }
+  .overlay.show{display:flex}
+  .modal{
+    width:min(560px,100%);
+    background:#fff8e8;
+    border:7px solid var(--wood);
+    border-radius:17px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 0 rgba(45,24,12,.3);
+  }
+  .modal h2{margin-top:0;font-size:34px}
+  .modal p{line-height:1.55}
+  .modal button{
+    border:3px solid var(--wood);
+    background:#e9c56d;
+    border-radius:9px;
+    padding:10px 18px;
+    font:bold 16px Georgia,serif;
+    cursor:pointer;
+  }
+  @media(max-width:600px){
+    body{padding:7px}
+    header{border-width:4px;padding:9px}
+    .stats{grid-template-columns:repeat(3,1fr) 58px}
+    .stat{padding:5px 2px}
+    .stat strong{font-size:17px}
+    #hintBtn{width:54px;height:54px}
+    .arena{padding:7px;border-width:5px}
+  }
+</style>
+</head>
+<body>
+<div class="game">
+  <header>
+    <h1>⛏️ WORD SHOVEL</h1>
+    <div class="stats">
+      <div class="stat"><span>Round</span><strong id="round">1</strong></div>
+      <div class="stat"><span>Turns left</span><strong id="turns">32</strong></div>
+      <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+      <button id="hintBtn" title="Use a hint">⌛</button>
+    </div>
+    <div class="wordbar" id="words"></div>
+  </header>
+
+  <div class="arena">
+    <div id="board" class="sandpit" aria-label="Word Shovel sandpit"></div>
+  </div>
+  <div class="controls">
+    <button class="control" id="newBtn">New Game</button>
+    <button class="control" id="helpBtn">How to Play</button>
+  </div>
+  <p class="tip">Left-click or right-click a sand tile to shovel it away.</p>
+</div>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <h2 id="modalTitle"></h2>
+    <p id="modalText"></p>
+    <button id="modalBtn">Continue</button>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/*
+  WORD SHOVEL
+  63 cells = 9 columns x 7 rows.
+  Straight word paths can therefore be at most 11 letters long.
+  Every word below is deliberately 5–9 letters so generation can NEVER
+  fail simply because a word is too long for the board.
+*/
+const THEMES = [
+  {name:"Bakery", words:["CUPCAKE","BAGEL","MUFFIN","SPATULA","WHISK"]},
+  {name:"Ocean", words:["DOLPHIN","SEASHELL","OCTOPUS","ANCHOR","SEAHORSE"]},
+  {name:"Enchanted Forest", words:["UNICORN","FAIRY","DRAGON","MUSHROOM","MAGIC"]},
+  {name:"Outer Space", words:["ROCKET","PLANET","COMET","ASTRONAUT","NEBULA"]},
+  {name:"Carnival", words:["CARAMEL","PARADE","POPCORN","CIRCUS","TICKET"]},
+  {name:"Ancient Egypt", words:["PYRAMID","PHARAOH","SCARAB","MUMMY","SPHINX"]},
+  {name:"Winter", words:["SNOWFLAKE","MITTENS","SNOWMAN","SLEIGH","FROST"]},
+  {name:"Jungle", words:["TIGER","PARROT","BANANA","JAGUAR","MONKEY"]},
+  {name:"Pirate Adventure", words:["TREASURE","PIRATE","COMPASS","CANNON","ISLAND"]},
+  {name:"Music Festival", words:["GUITAR","DRUMMER","SINGER","CONCERT","MELODY"]},
+  {name:"Dinosaur Dig", words:["TROODON","FOSSIL","RAPTOR","STEGOSAUR","VOLCANO"]},
+  {name:"Detective", words:["MYSTERY","SUSPECT","CLUEBOARD","FOOTPRINT","MAGNIFIER"]},
+  {name:"Garden", words:["SUNFLOWER","BUTTERFLY","LADYBUG","GARDENER","TULIP"]},
+  {name:"Haunted House", words:["GHOST","VAMPIRE","WEREWOLF","SKELETON","WITCH"]},
+  {name:"Road Trip", words:["HIGHWAY","SUITCASE","POSTCARD","MOTEL","ROADMAP"]}
+];
+
+const ROWS=7, COLS=9, CELLS=ROWS*COLS;
+const DIRS=[
+  [-1,-1],[-1,0],[-1,1],
+  [0,-1],[0,1],
+  [1,-1],[1,0],[1,1]
+];
+
+let round=1, score=0, turns=32, digs=0;
+let theme=null, words=[], cells=[], found=new Set();
+let wordStartDig={};
+let hintUses=3, hintLocked=false;
+
+const board=document.getElementById("board");
+const roundEl=document.getElementById("round");
+const turnsEl=document.getElementById("turns");
+const scoreEl=document.getElementById("score");
+const wordsEl=document.getElementById("words");
+const hintBtn=document.getElementById("hintBtn");
+const overlay=document.getElementById("overlay");
+const modalTitle=document.getElementById("modalTitle");
+const modalText=document.getElementById("modalText");
+const modalBtn=document.getElementById("modalBtn");
+
+function id(r,c){return r*COLS+c}
+function rc(i){return [Math.floor(i/COLS),i%COLS]}
+
+function pathsForWord(word){
+  const result=[];
+  for(let r=0;r<ROWS;r++){
+    for(let c=0;c<COLS;c++){
+      for(const [dr,dc] of DIRS){
+        const path=[];
+        let ok=true;
+        for(let k=0;k<word.length;k++){
+          const rr=r+dr*k, cc=c+dc*k;
+          if(rr<0||rr>=ROWS||cc<0||cc>=COLS){ok=false;break}
+          path.push(id(rr,cc));
+        }
+        if(ok) result.push(path);
+      }
+    }
+  }
+  return result;
+}
+
+function compatible(path, word, letters){
+  for(let i=0;i<path.length;i++){
+    const existing=letters[path[i]];
+    if(existing && existing!==word[i]) return false;
+  }
+  return true;
+}
+
+function placeWords(wordList){
+  const paths=wordList.map(w=>pathsForWord(w));
+  const order=wordList.map((w,i)=>i).sort((a,b)=>wordList[b].length-wordList[a].length);
+  const letters=Array(CELLS).fill("");
+  const chosen=Array(wordList.length);
+
+  function search(depth){
+    if(depth===order.length) return true;
+    const wi=order[depth];
+    const candidates=paths[wi].slice();
+
+    // Randomize equally-valid positions so boards feel different.
+    for(let i=candidates.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [candidates[i],candidates[j]]=[candidates[j],candidates[i]];
+    }
+
+    for(const path of candidates){
+      if(!compatible(path,wordList[wi],letters)) continue;
+      const added=[];
+      for(let k=0;k<path.length;k++){
+        const p=path[k];
+        if(!letters[p]){letters[p]=wordList[wi][k];added.push(p)}
+      }
+      chosen[wi]=path;
+      if(search(depth+1)) return true;
+      for(const p of added) letters[p]="";
+      chosen[wi]=null;
+    }
+    return false;
+  }
+
+  if(!search(0)) return null;
+
+  // Fill all unused cells with random letters.
+  const alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for(let i=0;i<CELLS;i++){
+    if(!letters[i]) letters[i]=alphabet[Math.floor(Math.random()*alphabet.length)];
+  }
+  return {letters,paths:chosen};
+}
+
+function generateBoard(){
+  // All word sets are guaranteed to be valid for the 9x7 board.
+  // Still use a retry loop as a safety net.
+  for(let attempt=0;attempt<40;attempt++){
+    const result=placeWords(words);
+    if(result) return result;
+  }
+  // Deterministic fallback: five non-conflicting horizontal/vertical paths.
+  // This should only be reached if an extremely unusual randomized search fails.
+  const letters=Array(CELLS).fill("");
+  const paths=[];
+  const starts=[[0,0,0,1],[1,0,0,1],[2,0,0,1],[3,0,0,1],[4,0,0,1]];
+  for(let w=0;w<words.length;w++){
+    const word=words[w], [r,c,dr,dc]=starts[w];
+    const path=[];
+    for(let k=0;k<word.length;k++){
+      const p=id(r+dr*k,c+dc*k);
+      path.push(p);
+      letters[p]=word[k];
+    }
+    paths.push(path);
+  }
+  const alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  for(let i=0;i<CELLS;i++) if(!letters[i])
+    letters[i]=alphabet[Math.floor(Math.random()*alphabet.length)];
+  return {letters,paths};
+}
+
+function difficultyTurns(){
+  return 32 + Math.floor((round-1)/5)*4;
+}
+
+function exposedCount(){
+  // A few starting letters, slowly increasing with difficulty.
+  return Math.min(5,2+Math.floor((round-1)/4));
+}
+
+function renderStats(){
+  roundEl.textContent=round;
+  turnsEl.textContent=turns;
+  scoreEl.textContent=score;
+  hintBtn.textContent=`⌛`;
+  hintBtn.title=`Hint (${hintUses} left this round)`;
+  hintBtn.disabled=hintUses<=0 || hintLocked;
+}
+
+function renderWords(){
+  wordsEl.innerHTML="";
+  words.forEach(w=>{
+    const el=document.createElement("div");
+    el.className="word"+(found.has(w)?" found":"");
+    el.textContent=w;
+    wordsEl.appendChild(el);
+  });
+}
+
+function makeGrains(cell){
+  for(let i=0;i<7;i++){
+    const g=document.createElement("span");
+    g.className="grain";
+    g.style.left=(20+Math.random()*60)+"%";
+    g.style.top=(25+Math.random()*35)+"%";
+    g.style.setProperty("--dx",(Math.random()*30-15)+"px");
+    g.style.setProperty("--dy",(35+Math.random()*85)+"px");
+    cell.appendChild(g);
+    setTimeout(()=>g.remove(),750);
+  }
+}
+
+function buildRound(){
+  theme=THEMES[(round-1)%THEMES.length];
+  words=[...theme.words];
+  found=new Set();
+  wordStartDig={};
+  digs=0;
+  turns=difficultyTurns();
+  hintUses=3;
+  hintLocked=false;
+
+  const generated=generateBoard();
+  cells=generated.letters.map((letter,i)=>({
+    letter,
+    pathWords:[]
+  }));
+
+  words.forEach((w,wi)=>{
+    generated.paths[wi].forEach(p=>cells[p].pathWords.push(w));
+  });
+
+  board.innerHTML="";
+  const elements=[];
+
+  for(let i=0;i<CELLS;i++){
+    const cell=document.createElement("div");
+    cell.className="cell";
+    cell.dataset.index=i;
+
+    const letter=document.createElement("div");
+    letter.className="letter";
+    letter.textContent=cells[i].letter;
+
+    const sand=document.createElement("div");
+    sand.className="sand";
+
+    cell.appendChild(letter);
+    cell.appendChild(sand);
+
+    const digHandler=(e)=>{
+      e.preventDefault();
+      dig(i);
+    };
+    cell.addEventListener("click",digHandler);
+    cell.addEventListener("contextmenu",digHandler);
+
+    board.appendChild(cell);
+    elements.push(cell);
+  }
+
+  // Expose a small random selection of letters.
+  const shuffled=[...Array(CELLS).keys()].sort(()=>Math.random()-.5);
+  for(let i=0;i<exposedCount();i++) reveal(shuffled[i],elements,false);
+
+  board._elements=elements;
+  renderStats();
+  renderWords();
+}
+
+function reveal(index,elements,animate=true){
+  const el=(elements||board._elements)[index];
+  if(!el || el.classList.contains("dug")) return false;
+
+  // Digging a hinted tile ends its hint animation immediately.
+  el.classList.remove("hint");
+
+  el.classList.add("dug");
+  if(animate){
+    el.classList.add("waterfall");
+    makeGrains(el);
+    setTimeout(()=>el.classList.remove("waterfall"),950);
+  }
+  return true;
+}
+
+function wordIsFound(word){
+  const wi=words.indexOf(word);
+  const pathCells=board._wordPaths[wi];
+  return pathCells.every(p=>board._elements[p].classList.contains("dug"));
+}
+
+function checkWords(){
+  const newly=[];
+  words.forEach((w,wi)=>{
+    if(found.has(w)) return;
+    if(wordIsFound(w)){
+      found.add(w);
+      newly.push(w);
+    }
+  });
+
+  for(const w of newly){
+    score++;
+    // Each word starts its own 9-shovel timer when its first letter is dug.
+    const elapsed=digs-(wordStartDig[w] ?? digs);
+    if(elapsed<9){
+      turns+=2;
+    }
+  }
+  return newly;
+}
+
+function dig(index){
+  if(turns<=0) return;
+  const el=board._elements[index];
+  if(el.classList.contains("dug")) return;
+
+  turns--;
+  digs++;
+
+  // Start an individual 9-shovel window for every word touched for the first time.
+  for(const w of cells[index].pathWords){
+    if(found.has(w)) continue;
+    if(wordStartDig[w]===undefined) wordStartDig[w]=digs;
+  }
+
+  reveal(index,board._elements,true);
+  renderStats();
+
+  setTimeout(()=>{
+    const newly=checkWords();
+    renderStats();
+    renderWords();
+
+    if(found.size===words.length){
+      showEnd(
+        "Round Complete! 🎉",
+        `You found all ${words.length} words. Your score is ${score}.`,
+        "Next Round"
+      );
+      return;
+    }
+    if(turns<=0){
+      showEnd(
+        "Out of Turns!",
+        `You found ${found.size} of ${words.length} words. Your score is ${score}.`,
+        "Try Again"
+      );
+    }
+  },430);
+}
+
+function useHint(){
+  if(hintUses<=0 || hintLocked) return;
+
+  const candidates=[];
+  words.forEach((w,wi)=>{
+    if(found.has(w)) return;
+    const path=board._wordPaths[wi];
+    const hidden=path.filter(p=>!board._elements[p].classList.contains("dug"));
+    if(hidden.length) candidates.push({path,hidden});
+  });
+  if(!candidates.length) return;
+
+  // Prefer the word with the most hidden letters.
+  candidates.sort((a,b)=>b.hidden.length-a.hidden.length);
+  const target=candidates[0];
+  const chosen=target.hidden.slice().sort(()=>Math.random()-.5).slice(0,Math.min(2,target.hidden.length));
+
+  hintUses--;
+  hintLocked=true;
+  renderStats();
+
+  chosen.forEach(p=>{
+    const el=board._elements[p];
+    if(!el.classList.contains("dug")){
+      el.classList.add("hint");
+      makeGrains(el);
+    }
+  });
+
+  // The hinted tiles keep shaking until they are clicked.
+  // The 30-second cooldown only controls when another hint can be requested.
+  setTimeout(()=>{
+    hintLocked=false;
+    renderStats();
+  },30000);
+}
+
+function showEnd(title,text,button){
+  modalTitle.textContent=title;
+  modalText.textContent=text;
+  modalBtn.textContent=button;
+  overlay.classList.add("show");
+}
+
+modalBtn.addEventListener("click",()=>{
+  overlay.classList.remove("show");
+  if(found.size===words.length){
+    round++;
+  } else {
+    // Retry the same round after losing.
+  }
+  buildRound();
+});
+
+document.getElementById("newBtn").addEventListener("click",()=>{
+  round=1;score=0;overlay.classList.remove("show");buildRound();
+});
+document.getElementById("helpBtn").addEventListener("click",()=>{
+  modalTitle.textContent="How to Play";
+  modalText.innerHTML=
+    "Find every word hidden in the sand. Words are straight lines and may go horizontally, vertically, diagonally, forwards, or backwards.<br><br>"+
+    "⛏️ Each click is one shovel. Left-click and right-click both work.<br>"+
+    "🎁 Every word has its own 9-shovel window: if you finish that word within 9 shovels after first touching it, you gain <b>+2 turns</b>.<br>"+
+    "⌛ The hourglass has 3 hints per round and a 30-second cooldown. Two letters from a hidden word keep shaking until you dig them, without being revealed.<br>"+
+    "🏆 You earn 1 point for every word found.<br>"+
+    "📈 Every 5 rounds you gain 4 starting turns.";
+  modalBtn.textContent="Got it";
+  overlay.classList.add("show");
+});
+hintBtn.addEventListener("click",useHint);
+
+(function init(){
+  // Store paths on the board after generation.
+  const originalBuild=buildRound;
+  buildRound=function(){
+    originalBuild();
+    // Reconstruct paths from the generated cell memberships.
+    board._wordPaths=words.map(w=>{
+      // A word's cells can be uniquely recovered because placement paths are
+      // stored in each cell, but direction/order must be preserved. To avoid
+      // ambiguity, generateBoard's paths are stored temporarily below.
+      return [];
+    });
+  };
+})();
+
+/*
+  Replace buildRound with a final version that directly stores generated paths.
+  Keeping this separate makes the game initialization robust and easy to audit.
+*/
+function startRound(){
+  theme=THEMES[(round-1)%THEMES.length];
+  words=[...theme.words];
+  found=new Set();
+  wordStartDig={};
+  digs=0;
+  turns=difficultyTurns();
+  hintUses=3;
+  hintLocked=false;
+
+  const generated=generateBoard();
+  cells=generated.letters.map(letter=>({letter,pathWords:[]}));
+  words.forEach((w,wi)=>generated.paths[wi].forEach(p=>cells[p].pathWords.push(w)));
+
+  board._wordPaths=generated.paths;
+  board.innerHTML="";
+  board._elements=[];
+
+  for(let i=0;i<CELLS;i++){
+    const cell=document.createElement("div");
+    cell.className="cell";
+    cell.dataset.index=i;
+
+    const letter=document.createElement("div");
+    letter.className="letter";
+    letter.textContent=cells[i].letter;
+    const sand=document.createElement("div");
+    sand.className="sand";
+
+    cell.append(letter,sand);
+
+    const digHandler=e=>{e.preventDefault();dig(i)};
+    cell.addEventListener("click",digHandler);
+    cell.addEventListener("contextmenu",digHandler);
+
+    board.appendChild(cell);
+    board._elements.push(cell);
+  }
+
+  const shuffled=[...Array(CELLS).keys()].sort(()=>Math.random()-.5);
+  for(let i=0;i<exposedCount();i++) reveal(shuffled[i],board._elements,false);
+
+  renderStats();
+  renderWords();
+}
+
+// Ensure the clean implementation is the one used.
+buildRound=startRound;
+buildRound();
+</script>
+</body>
+</html>
