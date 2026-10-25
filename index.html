@@ -1,1 +1,2624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Pujeetha's personal student portfolio — Integrated Business Management student, writer, reader, and language learner.">
+
+    <title>Pujeetha | Student Portfolio</title>
+
+    <!-- Elegant headline font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =====================================================
+           COLOR PALETTE
+           ===================================================== */
+
+        :root {
+            --deep-pink: #8f4a63;
+            --rose: #b86b83;
+            --soft-pink: #f4dce4;
+            --blush: #faeef2;
+            --cream: #fffaf7;
+            --gold: #b99a5b;
+            --light-gold: #d8c28c;
+            --dark: #35262d;
+            --text: #5d4b52;
+            --muted: #806d74;
+            --white: #ffffff;
+        }
+
+
+        /* =====================================================
+           GENERAL
+           ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           DECORATIVE GOLD DETAILS
+           ===================================================== */
+
+        .gold-line {
+            width: 70px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px 0 30px;
+        }
+
+        .gold-line.center {
+            margin: 20px auto 30px;
+        }
+
+        .ornament {
+            color: var(--gold);
+            font-family: "Playfair Display", serif;
+            font-size: 1.4rem;
+            letter-spacing: 7px;
+        }
+
+        .corner-decoration {
+            position: absolute;
+            color: var(--light-gold);
+            font-family: "Playfair Display", serif;
+            font-size: 3rem;
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        .top-left {
+            top: 25px;
+            left: 30px;
+        }
+
+        .bottom-right {
+            bottom: 25px;
+            right: 30px;
+            transform: rotate(180deg);
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+           ===================================================== */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(255, 250, 247, 0.94);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(185, 154, 91, 0.25);
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 17px 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--deep-pink);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            color: var(--text);
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose);
+        }
+
+
+        /* =====================================================
+           HERO
+           ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(244, 220, 228, 0.75),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(216, 194, 140, 0.13),
+                    transparent 25%
+                ),
+
+                var(--cream);
+        }
+
+        .hero::before {
+            content: "✦";
+            position: absolute;
+
+            top: 18%;
+            right: 10%;
+
+            color: var(--light-gold);
+            font-size: 5rem;
+
+            opacity: 0.35;
+        }
+
+        .hero::after {
+            content: "❦";
+            position: absolute;
+
+            bottom: 8%;
+            left: 7%;
+
+            color: var(--gold);
+            font-size: 4rem;
+
+            opacity: 0.25;
+        }
+
+        .hero-content {
+            max-width: 1150px;
+            width: 100%;
+
+            margin: auto;
+            padding: 130px 25px 90px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            letter-spacing: 4px;
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(4rem, 9vw, 7.5rem);
+
+            line-height: 1.05;
+
+            color: var(--deep-pink);
+
+            font-weight: 500;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(1.4rem, 3vw, 2rem);
+
+            font-weight: 400;
+
+            color: var(--dark);
+
+            margin-bottom: 25px;
+        }
+
+        .hero-description {
+            max-width: 680px;
+
+            font-size: 1rem;
+
+            color: var(--muted);
+        }
+
+
+        /* =====================================================
+           BUTTONS
+           ===================================================== */
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+
+            margin-top: 35px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 12px 25px;
+
+            border: 1px solid var(--gold);
+            border-radius: 3px;
+
+            font-size: 0.85rem;
+
+            transition: 0.3s ease;
+        }
+
+        .button.primary {
+            background: var(--deep-pink);
+            color: white;
+
+            border-color: var(--deep-pink);
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(143, 74, 99, 0.15);
+        }
+
+
+        /* =====================================================
+           SECTIONS
+           ===================================================== */
+
+        section {
+            max-width: 1150px;
+            margin: auto;
+
+            padding: 105px 25px;
+
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background: var(--blush);
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+
+            font-weight: 500;
+
+            color: var(--deep-pink);
+
+            line-height: 1.2;
+        }
+
+        .section-intro {
+            max-width: 650px;
+
+            color: var(--muted);
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =====================================================
+           ABOUT
+           ===================================================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1.3fr 1fr;
+
+            gap: 65px;
+
+            align-items: start;
+        }
+
+        .about-text {
+            font-size: 1rem;
+            color: var(--text);
+        }
+
+        .highlight {
+            color: var(--deep-pink);
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           CARDS
+           ===================================================== */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+        .card {
+            position: relative;
+
+            background: rgba(255, 255, 255, 0.75);
+
+            border: 1px solid rgba(185, 154, 91, 0.35);
+
+            padding: 32px;
+
+            border-radius: 5px;
+
+            transition: 0.35s ease;
+        }
+
+        .card::before {
+            content: "✦";
+
+            position: absolute;
+
+            top: 12px;
+            right: 17px;
+
+            color: var(--gold);
+
+            font-size: 0.8rem;
+
+            opacity: 0.7;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: var(--gold);
+
+            box-shadow:
+                0 15px 35px rgba(143, 74, 99, 0.08);
+        }
+
+        .card h3 {
+            font-family: "Playfair Display", serif;
+
+            color: var(--deep-pink);
+
+            font-size: 1.4rem;
+
+            font-weight: 500;
+
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+
+        /* =====================================================
+           SKILLS
+           ===================================================== */
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 10px 18px;
+
+            background: white;
+
+            border: 1px solid rgba(185, 154, 91, 0.45);
+
+            border-radius: 50px;
+
+            color: var(--text);
+
+            font-size: 0.82rem;
+
+            transition: 0.3s ease;
+        }
+
+        .skill:hover {
+            background: var(--soft-pink);
+            border-color: var(--gold);
+        }
+
+
+        /* =====================================================
+           LANGUAGES
+           ===================================================== */
+
+        .language {
+            max-width: 750px;
+
+            margin-bottom: 28px;
+        }
+
+        .language-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+        }
+
+        .language-header span:first-child {
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .language-header span:last-child {
+            color: var(--gold);
+
+            font-size: 0.8rem;
+        }
+
+        .bar {
+            height: 6px;
+
+            background: #eadde1;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--deep-pink),
+                    var(--gold)
+                );
+
+            border-radius: 10px;
+        }
+
+
+        /* =====================================================
+           EDUCATION / EXPERIENCE
+           ===================================================== */
+
+        .timeline-card {
+            border-left: 2px solid var(--gold);
+
+            padding: 5px 0 5px 30px;
+
+            margin-bottom: 30px;
+
+            position: relative;
+        }
+
+        .timeline-card::before {
+            content: "";
+
+            width: 10px;
+            height: 10px;
+
+            background: var(--cream);
+
+            border: 2px solid var(--gold);
+
+            border-radius: 50%;
+
+            position: absolute;
+
+            left: -7px;
+            top: 8px;
+        }
+
+        .timeline-card h3 {
+            font-family: "Playfair Display", serif;
+
+            color: var(--deep-pink);
+
+            font-size: 1.5rem;
+
+            font-weight: 500;
+        }
+
+
+        /* =====================================================
+           PROJECTS AND EMBEDDED GAME
+           ===================================================== */
+
+        #projects .cards {
+            grid-template-columns: minmax(0, 1fr);
+            max-width: 760px;
+        }
+
+        .project-card {
+            display: block;
+            color: inherit;
+        }
+
+        .project-cta {
+            display: inline-block;
+            margin-top: 18px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid var(--gold);
+            color: var(--deep-pink);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .project-card:hover .project-cta {
+            color: var(--rose);
+        }
+
+        .project-card:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .embedded-game-frame {
+            display: block;
+            width: 100%;
+            height: 880px;
+            border: 1px solid rgba(185, 154, 91, 0.45);
+            border-radius: 10px;
+            background: #0b0b17;
+            box-shadow: 0 15px 35px rgba(53, 38, 45, 0.12);
+        }
+
+        @media (max-width: 750px) {
+            .embedded-game-frame {
+                height: 760px;
+                border-radius: 7px;
+            }
+        }
+
+
+        /* =====================================================
+           CONTACT
+           ===================================================== */
+
+        .contact-section {
+            padding-bottom: 120px;
+        }
+
+        .contact-box {
+            position: relative;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f8e7ed,
+                    #fffaf7
+                );
+
+            border: 1px solid rgba(185, 154, 91, 0.5);
+
+            padding: 65px 40px;
+
+            text-align: center;
+
+            border-radius: 6px;
+
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: "❦";
+
+            position: absolute;
+
+            top: 15px;
+            left: 25px;
+
+            color: var(--gold);
+
+            font-size: 2rem;
+
+            opacity: 0.4;
+        }
+
+        .contact-box::after {
+            content: "❦";
+
+            position: absolute;
+
+            bottom: 10px;
+            right: 25px;
+
+            color: var(--gold);
+
+            font-size: 2rem;
+
+            opacity: 0.4;
+
+            transform: rotate(180deg);
+        }
+
+        .contact-box h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 2.7rem;
+
+            color: var(--deep-pink);
+
+            font-weight: 500;
+        }
+
+        .contact-box p {
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            color: var(--muted);
+        }
+
+        .email {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: var(--deep-pink);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 1.25rem;
+
+            border-bottom: 1px solid var(--gold);
+
+            padding-bottom: 3px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        footer {
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: var(--deep-pink);
+
+            color: #f8e7ed;
+
+            font-size: 0.8rem;
+        }
+
+        footer .ornament {
+            color: var(--light-gold);
+
+            display: block;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .cards,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .contact-box {
+                padding: 50px 25px;
+            }
+
+            .corner-decoration {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                Pujeetha.
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#languages">Languages</a></li>
+                <li><a href="#volunteering">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <main id="home">
+
+        <div class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Student • Reader • Writer • Language Learner
+                </div>
+
+                <h1>
+                    Hello, I'm<br>
+                    Pujeetha.
+                </h1>
+
+                <div class="ornament">
+                    ── ✦ ──
+                </div>
+
+                <h2>
+                    Integrated Business Management Student
+                </h2>
+
+                <p class="hero-description">
+                    I'm a Bachelor's student studying Integrated Business
+                    Management with a passion for reading, writing,
+                    communication, and languages. I'm always interested
+                    in learning something new and developing skills that
+                    help me connect with people and ideas.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#about" class="button primary">
+                        Explore My Portfolio
+                    </a>
+
+                    <a href="#contact" class="button">
+                        Get In Touch
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section id="about">
+
+        <span class="corner-decoration top-left">❦</span>
+        <span class="corner-decoration bottom-right">❦</span>
+
+        <div class="about-grid">
+
+            <div>
+
+                <div class="eyebrow">
+                    About Me
+                </div>
+
+                <h2 class="section-title">
+                    A curious mind with a love for learning.
+                </h2>
+
+                <div class="gold-line"></div>
+
+                <p class="about-text">
+
+                    I am currently pursuing my Bachelor's degree in
+                    <span class="highlight">
+                        Integrated Business Management (IBM)
+                    </span>.
+
+                    My interests extend beyond academics, particularly
+                    into reading, writing, languages, and communication.
+
+                    <br><br>
+
+                    I enjoy exploring different ways of communicating
+                    and connecting with people. My experience with
+                    multiple languages and sign languages has helped me
+                    develop an appreciation for different perspectives
+                    and forms of expression.
+
+                    <br><br>
+
+                    I am also someone who enjoys continuously learning
+                    and expanding my abilities, which is why I am
+                    currently studying both
+                    <span class="highlight">Korean</span> and
+                    <span class="highlight">
+                        Korean Sign Language (KSL)
+                    </span>.
+
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>Reading</h3>
+
+                    <p>
+                        I enjoy reading and discovering new stories,
+                        ideas, and perspectives.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Writing</h3>
+
+                    <p>
+                        Writing is one of my creative interests and
+                        a way I enjoy expressing ideas.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Languages</h3>
+
+                    <p>
+                        I enjoy learning languages and exploring
+                        different forms of communication.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>Communication</h3>
+
+                    <p>
+                        I value interpersonal communication and
+                        building positive connections with others.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EDUCATION
+         ===================================================== -->
+
+    <section id="education">
+
+        <div class="eyebrow">
+            Education
+        </div>
+
+        <h2 class="section-title">
+            Academic Background
+        </h2>
+
+        <div class="gold-line"></div>
+
+
+        <div class="timeline-card">
+
+            <h3>
+                Bachelor's Degree
+            </h3>
+
+            <p>
+                <strong>
+                    Integrated Business Management (IBM)
+                </strong>
+            </p>
+
+            <p>
+                Currently pursuing my Bachelor's degree, developing
+                knowledge across business, management, communication,
+                and related fields.
+            </p>
+
+        </div>
+
+
+        <div class="timeline-card">
+
+            <h3>
+                Continuous Learning
+            </h3>
+
+            <p>
+                Alongside my university studies, I am currently learning
+                <strong>Korean</strong> and
+                <strong>Korean Sign Language (KSL)</strong>.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         SKILLS
+         ===================================================== -->
+
+    <section id="skills">
+
+        <div class="eyebrow">
+            What I Bring
+        </div>
+
+        <h2 class="section-title">
+            Skills
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <p class="section-intro">
+            A combination of communication, interpersonal, language,
+            and creative skills that I continue to develop.
+        </p>
+
+
+        <div class="skill-list">
+
+            <span class="skill">
+                Interpersonal Skills
+            </span>
+
+            <span class="skill">
+                Communication
+            </span>
+
+            <span class="skill">
+                English
+            </span>
+
+            <span class="skill">
+                Malayalam
+            </span>
+
+            <span class="skill">
+                Tamil
+            </span>
+
+            <span class="skill">
+                American Sign Language (ASL)
+            </span>
+
+            <span class="skill">
+                Korean — Learning
+            </span>
+
+            <span class="skill">
+                Korean Sign Language — Learning
+            </span>
+
+            <span class="skill">
+                Reading
+            </span>
+
+            <span class="skill">
+                Writing
+            </span>
+
+            <span class="skill">
+                Teamwork
+            </span>
+
+            <span class="skill">
+                Adaptability
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LANGUAGES
+         ===================================================== -->
+
+    <section id="languages">
+
+        <div class="eyebrow">
+            Communication
+        </div>
+
+        <h2 class="section-title">
+            Languages
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <p class="section-intro">
+            I enjoy communicating across different languages and
+            am currently expanding my language abilities.
+        </p>
+
+
+        <!-- English -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    English
+                </span>
+
+                <span>
+                    Fluent
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 100%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Malayalam -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    Malayalam
+                </span>
+
+                <span>
+                    Fluent
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 100%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Tamil -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    Tamil
+                </span>
+
+                <span>
+                    Fluent
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 100%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- ASL -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    American Sign Language (ASL)
+                </span>
+
+                <span>
+                    Fluent
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 100%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Korean -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    Korean
+                </span>
+
+                <span>
+                    Currently Learning
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 35%;"></div>
+            </div>
+
+        </div>
+
+
+        <!-- KSL -->
+
+        <div class="language">
+
+            <div class="language-header">
+
+                <span>
+                    Korean Sign Language (KSL)
+                </span>
+
+                <span>
+                    Currently Learning
+                </span>
+
+            </div>
+
+            <div class="bar">
+                <div class="fill" style="width: 25%;"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         VOLUNTEERING
+         ===================================================== -->
+
+    <section id="volunteering">
+
+        <div class="eyebrow">
+            Experience
+        </div>
+
+        <h2 class="section-title">
+            Volunteering
+        </h2>
+
+        <div class="gold-line"></div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    20+ Hours of Volunteering
+                </h3>
+
+                <p>
+                    I have completed more than 20 hours of volunteering,
+                    gaining experience in contributing to activities,
+                    working with others, and engaging with my community.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    What I Learned
+                </h3>
+
+                <p>
+                    Volunteering has helped me strengthen my interpersonal
+                    skills, communication, teamwork, responsibility,
+                    and willingness to contribute.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         INTERESTS
+         ===================================================== -->
+
+    <section>
+
+        <div class="eyebrow">
+            Beyond Academics
+        </div>
+
+        <h2 class="section-title">
+            Interests
+        </h2>
+
+        <div class="gold-line"></div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Reading
+                </h3>
+
+                <p>
+                    Exploring books and stories is one of my favourite
+                    ways to spend my time and discover new perspectives.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Writing
+                </h3>
+
+                <p>
+                    I enjoy writing and using creativity to express
+                    thoughts, ideas, and stories.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Sign Languages
+                </h3>
+
+                <p>
+                    I have developed fluency in ASL and am currently
+                    expanding my knowledge by learning KSL.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Languages
+                </h3>
+
+                <p>
+                    Learning languages allows me to explore different
+                    cultures and communicate with a wider range of people.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
+
+    <!-- =====================================================
+         PROJECTS
+         ===================================================== -->
+
+    <section id="projects">
+
+        <div class="eyebrow">What I've Created</div>
+
+        <h2 class="section-title">Interactive Projects</h2>
+
+        <div class="gold-line"></div>
+
+        <p class="section-intro">
+            Explore an interactive dark-fantasy game built around sword combat,
+            skill progression, and unlimited regression.
+        </p>
+
+        <div class="cards">
+            <a class="card project-card" href="#play-game" aria-label="Play Three Ways to Survive in a Ruined World on this page">
+                <h3>⚔ Three Ways to Survive in a Ruined World</h3>
+                <p>
+                    A dark-fantasy action runner where you wield a sword,
+                    unlock powerful skills, and grow stronger with every
+                    regression on the road to the Demon King's Castle.
+                </p>
+                <span class="project-cta">Play the game ↓</span>
+            </a>
+        </div>
+
+    </section>
+
+    <!-- The entire game is embedded below; no second HTML upload is needed. -->
+    <section id="play-game">
+        <div class="eyebrow">Play Now</div>
+        <h2 class="section-title">Three Ways to Survive in a Ruined World</h2>
+        <div class="gold-line"></div>
+        <p class="section-intro">
+            Click inside the game to begin. For the full experience, use a keyboard.
+        </p>
+        <iframe
+            class="embedded-game-frame"
+            title="Three Ways to Survive in a Ruined World — playable game"
+            srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#101020&quot;&gt;
+&lt;title&gt;Three Ways to Survive in a Ruined World&lt;/title&gt;
+&lt;style&gt;
+  :root {
+    color-scheme: dark;
+    --ink: #f7f2ff;
+    --muted: #b9b4d1;
+    --panel: rgba(22, 19, 41, .88);
+    --line: rgba(222, 214, 255, .16);
+    --violet: #a88aff;
+    --gold: #ffd58b;
+    --mint: #8be6ce;
+    --rose: #ff8b9d;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: #0b0b17; color: var(--ink); font-family: ui-rounded, &quot;Segoe UI&quot;, system-ui, -apple-system, sans-serif; }
+  body {
+    background:
+      radial-gradient(ellipse at 50% -18%, rgba(117, 85, 188, .28), transparent 48%),
+      radial-gradient(ellipse at 90% 60%, rgba(50, 119, 131, .10), transparent 45%),
+      #0b0b17;
+    padding: 22px 18px 28px;
+  }
+  .app { width: min(1180px, 100%); margin: 0 auto; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; margin: 0 0 14px; }
+  .brand { display:flex; gap:12px; align-items:center; min-width:0; }
+  .brand-mark { width:42px; height:42px; display:grid; place-items:center; border:1px solid rgba(201,174,255,.35); border-radius:14px; background:linear-gradient(145deg,rgba(145,110,218,.27),rgba(32,30,57,.78)); box-shadow:0 8px 24px rgba(0,0,0,.2); font-size:23px; }
+  .brand h1 { font-size: clamp(15px, 2.4vw, 22px); line-height:1.15; margin:0; letter-spacing:.015em; font-weight:750; }
+  .brand p { font-size:12px; margin:5px 0 0; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; }
+  .top-actions { display:flex; gap:8px; flex-shrink:0; }
+  button { font:inherit; color:var(--ink); cursor:pointer; border:1px solid var(--line); background:rgba(255,255,255,.055); border-radius:12px; padding:10px 14px; font-weight:650; transition:transform .14s ease, background .14s ease, border-color .14s ease; }
+  button:hover { background:rgba(174,148,255,.16); border-color:rgba(202,184,255,.42); transform:translateY(-1px); }
+  button:focus-visible { outline:2px solid var(--gold); outline-offset:3px; }
+  button.primary { color:#19122a; border-color:transparent; background:linear-gradient(135deg,#e5d5ff,#b6a1ff 60%,#91d9d3); box-shadow:0 6px 22px rgba(141,109,228,.22); }
+  button.primary:hover { background:linear-gradient(135deg,#f0e6ff,#c7b7ff 60%,#a5eee2); }
+  button.gold { color:#271b10; background:linear-gradient(135deg,#ffe8b4,#ffbf72); border-color:transparent; }
+  button.danger { background:rgba(236,92,122,.12); border-color:rgba(255,139,157,.3); }
+  button:disabled { opacity:.36; cursor:not-allowed; transform:none; }
+  .game-frame { position:relative; overflow:hidden; isolation:isolate; border:1px solid rgba(215,201,255,.22); border-radius:22px; background:#151426; box-shadow:0 22px 80px rgba(0,0,0,.42),0 0 0 5px rgba(255,255,255,.015); }
+  canvas { display:block; width:100%; height:auto; aspect-ratio:16/9; background:#161324; }
+  .overlay { position:absolute; inset:0; display:grid; place-items:center; padding:clamp(12px,3vw,28px); background:linear-gradient(180deg,rgba(8,8,19,.23),rgba(8,8,19,.66)); backdrop-filter:blur(3px); overflow:auto; }
+  .overlay.hidden { display:none; }
+  .overlay[data-state=&quot;playing&quot;], .overlay[data-state=&quot;boss&quot;] { display:none; }
+  .panel { width:min(630px,100%); max-height:100%; overflow:auto; padding:clamp(18px,3vw,30px); border:1px solid rgba(226,217,255,.2); border-radius:22px; background:linear-gradient(150deg,rgba(26,23,48,.97),rgba(13,15,29,.96)); box-shadow:0 20px 60px rgba(0,0,0,.4); }
+  .panel.wide { width:min(850px,100%); }
+  .eyebrow { color:var(--mint); font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:800; margin:0 0 9px; }
+  .panel h2 { margin:0; line-height:1.08; font-size:clamp(25px,4vw,43px); letter-spacing:-.035em; }
+  .panel h3 { margin:0; font-size:19px; }
+  .panel p { color:#d1cce3; line-height:1.55; margin:12px 0; }
+  .panel .lede { font-size:clamp(14px,1.7vw,17px); max-width:58ch; }
+  .panel-actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:20px; }
+  .panel-actions button { flex:1 1 auto; }
+  .meta-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .chip { border:1px solid rgba(216,204,255,.16); background:rgba(255,255,255,.045); color:#d9d3ef; border-radius:999px; padding:7px 10px; font-size:12px; }
+  .skill-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:18px; }
+  .skill-card { display:flex; flex-direction:column; align-items:flex-start; gap:9px; min-height:185px; padding:16px; text-align:left; border-radius:16px; background:linear-gradient(145deg,rgba(114,87,174,.18),rgba(255,255,255,.035)); }
+  .skill-card .icon { font-size:26px; }
+  .skill-card strong { font-size:16px; }
+  .skill-card small { color:#d4cfe6; font-size:13px; line-height:1.45; font-weight:450; }
+  .skill-card em { margin-top:auto; font-size:11px; color:var(--mint); font-style:normal; }
+  .choice-list { display:grid; gap:8px; margin-top:16px; }
+  .choice-list button { display:flex; justify-content:space-between; align-items:center; text-align:left; gap:14px; }
+  .choice-list .sub { font-weight:450; font-size:12px; color:var(--muted); }
+  .notice { border-radius:12px; padding:11px 13px; color:#e4dafa; background:rgba(172,138,255,.10); border:1px solid rgba(172,138,255,.18); font-size:13px; line-height:1.45; margin-top:13px; }
+  .bottom-row { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; align-items:center; margin:14px 2px 0; color:#a9a4c2; font-size:12px; }
+  .controls { display:flex; flex-wrap:wrap; gap:7px; }
+  kbd { min-width:23px; display:inline-block; text-align:center; border:1px solid rgba(224,218,255,.2); border-bottom-width:2px; border-radius:5px; color:#ddd7f3; background:rgba(255,255,255,.05); padding:2px 5px; font:600 11px ui-monospace, SFMono-Regular, Consolas, monospace; }
+  .toast { position:absolute; left:50%; bottom:18px; transform:translate(-50%,12px); background:rgba(13,12,27,.92); color:#fff3cf; border:1px solid rgba(255,213,139,.26); border-radius:999px; padding:9px 15px; font-size:13px; font-weight:700; opacity:0; pointer-events:none; transition:opacity .18s,transform .18s; white-space:nowrap; max-width:90%; overflow:hidden; text-overflow:ellipsis; box-shadow:0 8px 28px rgba(0,0,0,.24); }
+  .toast.show { opacity:1; transform:translate(-50%,0); }
+  .footer-note { margin-top:14px; color:#77738f; font-size:11px; line-height:1.5; text-align:center; }
+  @media (max-width:650px) {
+    body { padding:12px 9px 22px; }
+    .topbar { align-items:flex-start; }
+    .brand-mark { width:36px; height:36px; border-radius:11px; }
+    .brand p { font-size:10px; }
+    .top-actions button { padding:8px 10px; font-size:12px; }
+    .game-frame { border-radius:14px; }
+    .overlay { padding:9px; }
+    .panel { border-radius:16px; padding:17px; }
+    .skill-grid { gap:8px; }
+    .skill-card { min-height:165px; padding:12px; }
+    .skill-card small { font-size:12px; }
+    .bottom-row { font-size:11px; }
+  }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition:none !important; } }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;main class=&quot;app&quot;&gt;
+  &lt;header class=&quot;topbar&quot;&gt;
+    &lt;div class=&quot;brand&quot;&gt;
+      &lt;div class=&quot;brand-mark&quot; aria-hidden=&quot;true&quot;&gt;⚔&lt;/div&gt;
+      &lt;div&gt;&lt;h1&gt;Three Ways to Survive in a Ruined World&lt;/h1&gt;&lt;p&gt;A dark-fantasy regression runner&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;top-actions&quot;&gt;
+      &lt;button id=&quot;soundBtn&quot; aria-pressed=&quot;false&quot; title=&quot;Toggle sound effects&quot;&gt;♪ Sound off&lt;/button&gt;
+      &lt;button id=&quot;helpBtn&quot; title=&quot;Show controls&quot;&gt;Controls&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;section class=&quot;game-frame&quot; id=&quot;gameFrame&quot; aria-label=&quot;Game area&quot;&gt;
+    &lt;canvas id=&quot;gameCanvas&quot; width=&quot;960&quot; height=&quot;540&quot; aria-label=&quot;Three Ways to Survive in a Ruined World game canvas&quot;&gt;&lt;/canvas&gt;
+    &lt;div class=&quot;overlay&quot; id=&quot;overlay&quot; data-state=&quot;title&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;toast&quot; id=&quot;toast&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;div class=&quot;bottom-row&quot;&gt;
+    &lt;div class=&quot;controls&quot; aria-label=&quot;Controls&quot;&gt;
+      &lt;span&gt;&lt;kbd&gt;Space&lt;/kbd&gt; jump&lt;/span&gt;&lt;span&gt;&lt;kbd&gt;↓&lt;/kbd&gt; duck&lt;/span&gt;&lt;span&gt;&lt;kbd&gt;↑&lt;/kbd&gt; sprint&lt;/span&gt;&lt;span&gt;&lt;kbd&gt;←&lt;/kbd&gt; brake&lt;/span&gt;&lt;span&gt;&lt;kbd&gt;X&lt;/kbd&gt; sword&lt;/span&gt;&lt;span&gt;&lt;kbd&gt;E&lt;/kbd&gt; skill&lt;/span&gt;&lt;span&gt;&lt;kbd&gt;P&lt;/kbd&gt; pause&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div&gt;Progress saves in this browser · No server required&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;footer-note&quot;&gt;A self-contained HTML game for GitHub Pages. Use a keyboard for the full experience.&lt;/div&gt;
+&lt;/main&gt;
+
+&lt;script&gt;
+(() =&gt; {
+  &#x27;use strict&#x27;;
+  const W = 960, H = 540, GROUND = 430, PLAYER_X = 205;
+  const $ = (q) =&gt; document.querySelector(q);
+  const canvas = $(&#x27;#gameCanvas&#x27;);
+  const ctx = canvas.getContext(&#x27;2d&#x27;);
+  const overlay = $(&#x27;#overlay&#x27;);
+  const toastEl = $(&#x27;#toast&#x27;);
+  const soundBtn = $(&#x27;#soundBtn&#x27;);
+  const helpBtn = $(&#x27;#helpBtn&#x27;);
+  const SAVE_KEY = &#x27;threeWaysRuinedWorld_save_v1&#x27;;
+  const PROJECTION = 0.50;
+  const STAGE_LENGTH = 2450;
+  const SKILL_AT = 1210;
+  const BOSS_START = 1770;
+
+  const terrains = [
+    {name:&#x27;Forest Maze&#x27;, subtitle:&#x27;The path beneath the old canopy&#x27;, sky:[&#x27;#1a2335&#x27;,&#x27;#5b5477&#x27;], far:&#x27;#3b3d5a&#x27;, mid:&#x27;#253547&#x27;, ground:&#x27;#1d2730&#x27;, glow:&#x27;#8bd8b0&#x27;, accent:&#x27;#9cd9af&#x27;, obstacle:&#x27;root&#x27;, skyThing:&#x27;moon&#x27;},
+    {name:&#x27;Frozen Ridge&#x27;, subtitle:&#x27;A quiet mountain that wants you dead&#x27;, sky:[&#x27;#182b43&#x27;,&#x27;#7398b4&#x27;], far:&#x27;#55748e&#x27;, mid:&#x27;#304b67&#x27;, ground:&#x27;#243b50&#x27;, glow:&#x27;#a9edff&#x27;, accent:&#x27;#b9eeff&#x27;, obstacle:&#x27;ice&#x27;, skyThing:&#x27;moon&#x27;},
+    {name:&#x27;Sunken Marsh&#x27;, subtitle:&#x27;Every ripple hides a hungry thing&#x27;, sky:[&#x27;#14252d&#x27;,&#x27;#55776f&#x27;], far:&#x27;#385853&#x27;, mid:&#x27;#263f3b&#x27;, ground:&#x27;#1b302d&#x27;, glow:&#x27;#a4e3ad&#x27;, accent:&#x27;#b4eb9b&#x27;, obstacle:&#x27;mire&#x27;, skyThing:&#x27;moon&#x27;},
+    {name:&#x27;Ashen Desert&#x27;, subtitle:&#x27;The sun burns what the world forgot&#x27;, sky:[&#x27;#402b43&#x27;,&#x27;#d18b6b&#x27;], far:&#x27;#946b73&#x27;, mid:&#x27;#714958&#x27;, ground:&#x27;#573646&#x27;, glow:&#x27;#ffc58a&#x27;, accent:&#x27;#ffd19b&#x27;, obstacle:&#x27;sand&#x27;, skyThing:&#x27;sun&#x27;},
+    {name:&#x27;Overgrown Ruins&#x27;, subtitle:&#x27;Roots reclaim a kingdom of stone&#x27;, sky:[&#x27;#172631&#x27;,&#x27;#64806c&#x27;], far:&#x27;#40594d&#x27;, mid:&#x27;#293c3c&#x27;, ground:&#x27;#202c2d&#x27;, glow:&#x27;#a9e5bd&#x27;, accent:&#x27;#a5dfac&#x27;, obstacle:&#x27;vine&#x27;, skyThing:&#x27;moon&#x27;},
+    {name:&#x27;Abandoned Castle&#x27;, subtitle:&#x27;The last kingdom fell from the inside&#x27;, sky:[&#x27;#191a31&#x27;,&#x27;#625070&#x27;], far:&#x27;#4b405e&#x27;, mid:&#x27;#2d2d46&#x27;, ground:&#x27;#202034&#x27;, glow:&#x27;#d3a1ff&#x27;, accent:&#x27;#d3afff&#x27;, obstacle:&#x27;stone&#x27;, skyThing:&#x27;moon&#x27;},
+    {name:&quot;Demon King&#x27;s Castle&quot;, subtitle:&#x27;The end of every doomed road&#x27;, sky:[&#x27;#210f28&#x27;,&#x27;#8a3348&#x27;], far:&#x27;#5c243e&#x27;, mid:&#x27;#36182d&#x27;, ground:&#x27;#251321&#x27;, glow:&#x27;#ff6b68&#x27;, accent:&#x27;#ff9a70&#x27;, obstacle:&#x27;hell&#x27;, skyThing:&#x27;infernal&#x27;}
+  ];
+
+  const skills = {
+    regression:{name:&#x27;Regression&#x27;, icon:&#x27;↺&#x27;, desc:&#x27;On death, return to the Forest Maze. Keep level, EXP, unlocked skills and permanent upgrades forever.&#x27;, type:&#x27;passive&#x27;},
+    deathdoor:{name:&quot;At Death&#x27;s Door&quot;, icon:&#x27;✦&#x27;, desc:&#x27;Press E at 2 hearts or fewer to double movement speed for 5 seconds. Cooldown: 30 seconds.&#x27;, type:&#x27;active&#x27;},
+    barkskin:{name:&#x27;Barkskin&#x27;, icon:&#x27;◈&#x27;, desc:&#x27;Begin each Scenario with one shield that absorbs a hit.&#x27;, type:&#x27;defense&#x27;},
+    windstep:{name:&#x27;Windstep&#x27;, icon:&#x27;⌁&#x27;, desc:&#x27;Jump higher and control the air more easily.&#x27;, type:&#x27;movement&#x27;},
+    frostleap:{name:&#x27;Frost Leap&#x27;, icon:&#x27;❄&#x27;, desc:&#x27;Unlock one additional jump while airborne.&#x27;, type:&#x27;movement&#x27;},
+    icegrip:{name:&#x27;Ice Grip&#x27;, icon:&#x27;◇&#x27;, desc:&#x27;Brake more effectively on slippery terrain.&#x27;, type:&#x27;movement&#x27;},
+    venomedge:{name:&#x27;Venom Edge&#x27;, icon:&#x27;☠&#x27;, desc:&#x27;Sword hits poison demons, dealing additional damage over time.&#x27;, type:&#x27;combat&#x27;},
+    predatorsense:{name:&#x27;Predator Sense&#x27;, icon:&#x27;◉&#x27;, desc:&#x27;Enemy attacks show earlier and more clearly.&#x27;, type:&#x27;defense&#x27;},
+    scavengerluck:{name:&quot;Scavenger&#x27;s Luck&quot;, icon:&#x27;✧&#x27;, desc:&#x27;Each coin picked up is worth one extra coin.&#x27;, type:&#x27;resource&#x27;},
+    sandslide:{name:&#x27;Sand Slide&#x27;, icon:&#x27;〰&#x27;, desc:&#x27;Ducking lasts longer and is safer under low hazards.&#x27;, type:&#x27;movement&#x27;},
+    thorncounter:{name:&#x27;Thorn Counter&#x27;, icon:&#x27;✣&#x27;, desc:&#x27;A sword swing during an enemy attack warning can counter it for bonus damage.&#x27;, type:&#x27;combat&#x27;},
+    echodash:{name:&#x27;Echo Dash&#x27;, icon:&#x27;➜&#x27;, desc:&#x27;Press Q to dash briefly and avoid one well-timed hit. Cooldown: 8 seconds.&#x27;, type:&#x27;active&#x27;},
+    soulharvest:{name:&#x27;Soul Harvest&#x27;, icon:&#x27;✺&#x27;, desc:&#x27;Gain 35% more EXP from defeated demons.&#x27;, type:&#x27;resource&#x27;},
+    guardiansigil:{name:&#x27;Guardian Sigil&#x27;, icon:&#x27;⬡&#x27;, desc:&#x27;Begin each Scenario with one shield that absorbs a hit.&#x27;, type:&#x27;defense&#x27;},
+    hellbreaker:{name:&#x27;Hellbreaker&#x27;, icon:&#x27;✦&#x27;, desc:&#x27;Your sword deals extra damage to the Demon King.&#x27;, type:&#x27;combat&#x27;},
+    phoenixthread:{name:&#x27;Phoenix Thread&#x27;, icon:&#x27;♧&#x27;, desc:&#x27;Once per Demon King fight, survive a lethal hit with 1 heart.&#x27;, type:&#x27;defense&#x27;}
+  };
+  const skillPairs = [
+    [&#x27;barkskin&#x27;,&#x27;windstep&#x27;], [&#x27;frostleap&#x27;,&#x27;icegrip&#x27;], [&#x27;venomedge&#x27;,&#x27;predatorsense&#x27;],
+    [&#x27;scavengerluck&#x27;,&#x27;sandslide&#x27;], [&#x27;thorncounter&#x27;,&#x27;echodash&#x27;], [&#x27;soulharvest&#x27;,&#x27;guardiansigil&#x27;],
+    [&#x27;hellbreaker&#x27;,&#x27;phoenixthread&#x27;]
+  ];
+  const hazardSets = [
+    [{type:&#x27;root&#x27;,need:&#x27;jump&#x27;},{type:&#x27;branch&#x27;,need:&#x27;duck&#x27;},{type:&#x27;gap&#x27;,need:&#x27;jump&#x27;},{type:&#x27;roots&#x27;,need:&#x27;jump&#x27;},{type:&#x27;branch&#x27;,need:&#x27;duck&#x27;},{type:&#x27;gap&#x27;,need:&#x27;jump&#x27;},{type:&#x27;thorn&#x27;,need:&#x27;jump&#x27;},{type:&#x27;branch&#x27;,need:&#x27;duck&#x27;}],
+    [{type:&#x27;icicle&#x27;,need:&#x27;duck&#x27;},{type:&#x27;crevasse&#x27;,need:&#x27;jump&#x27;},{type:&#x27;snowdrift&#x27;,need:&#x27;jump&#x27;},{type:&#x27;icicle&#x27;,need:&#x27;duck&#x27;},{type:&#x27;crevasse&#x27;,need:&#x27;jump&#x27;},{type:&#x27;icewall&#x27;,need:&#x27;jump&#x27;},{type:&#x27;icicle&#x27;,need:&#x27;duck&#x27;},{type:&#x27;crevasse&#x27;,need:&#x27;jump&#x27;}],
+    [{type:&#x27;mire&#x27;,need:&#x27;jump&#x27;},{type:&#x27;reed&#x27;,need:&#x27;duck&#x27;},{type:&#x27;toxic&#x27;,need:&#x27;jump&#x27;},{type:&#x27;mire&#x27;,need:&#x27;jump&#x27;},{type:&#x27;reed&#x27;,need:&#x27;duck&#x27;},{type:&#x27;toxic&#x27;,need:&#x27;jump&#x27;},{type:&#x27;plant&#x27;,need:&#x27;duck&#x27;},{type:&#x27;mire&#x27;,need:&#x27;jump&#x27;}],
+    [{type:&#x27;vent&#x27;,need:&#x27;jump&#x27;},{type:&#x27;fallen&#x27;,need:&#x27;duck&#x27;},{type:&#x27;dune&#x27;,need:&#x27;jump&#x27;},{type:&#x27;vent&#x27;,need:&#x27;jump&#x27;},{type:&#x27;fallen&#x27;,need:&#x27;duck&#x27;},{type:&#x27;dune&#x27;,need:&#x27;jump&#x27;},{type:&#x27;vent&#x27;,need:&#x27;jump&#x27;},{type:&#x27;fallen&#x27;,need:&#x27;duck&#x27;}],
+    [{type:&#x27;vine&#x27;,need:&#x27;duck&#x27;},{type:&#x27;rubble&#x27;,need:&#x27;jump&#x27;},{type:&#x27;thorn&#x27;,need:&#x27;jump&#x27;},{type:&#x27;vine&#x27;,need:&#x27;duck&#x27;},{type:&#x27;rubble&#x27;,need:&#x27;jump&#x27;},{type:&#x27;fallen&#x27;,need:&#x27;duck&#x27;},{type:&#x27;thorn&#x27;,need:&#x27;jump&#x27;},{type:&#x27;vine&#x27;,need:&#x27;duck&#x27;}],
+    [{type:&#x27;trap&#x27;,need:&#x27;jump&#x27;},{type:&#x27;blade&#x27;,need:&#x27;duck&#x27;},{type:&#x27;rubble&#x27;,need:&#x27;jump&#x27;},{type:&#x27;trap&#x27;,need:&#x27;jump&#x27;},{type:&#x27;blade&#x27;,need:&#x27;duck&#x27;},{type:&#x27;falling&#x27;,need:&#x27;duck&#x27;},{type:&#x27;trap&#x27;,need:&#x27;jump&#x27;},{type:&#x27;blade&#x27;,need:&#x27;duck&#x27;}],
+    [{type:&#x27;hellfire&#x27;,need:&#x27;jump&#x27;},{type:&#x27;soulchain&#x27;,need:&#x27;duck&#x27;},{type:&#x27;lava&#x27;,need:&#x27;jump&#x27;},{type:&#x27;hellfire&#x27;,need:&#x27;jump&#x27;},{type:&#x27;soulchain&#x27;,need:&#x27;duck&#x27;},{type:&#x27;lava&#x27;,need:&#x27;jump&#x27;},{type:&#x27;hellfire&#x27;,need:&#x27;jump&#x27;},{type:&#x27;soulchain&#x27;,need:&#x27;duck&#x27;}]
+  ];
+
+  const defaultProfile = () =&gt; ({
+    regression:&#x27;2&#x27;, level:3, totalExp:0, levelExp:0, upgradePoints:0,
+    unlocked:[&#x27;regression&#x27;,&#x27;deathdoor&#x27;], equipped:[], upgrades:{power:0,endurance:0,recovery:0}
+  });
+  let profile = loadProfile();
+  let state = &#x27;title&#x27;;
+  let stateBeforeArchive = &#x27;title&#x27;;
+  let pauseReturnState = &#x27;playing&#x27;;
+  let lastLostCoins = 0;
+  let terrainIndex = 0, progress = 0, runCoins = 0, hearts = 8;
+  let temporaryShield = 0, nextShield = false, phoenixUsed = false;
+  let stamina = 100, maxStamina = 100;
+  let jumpHeight = 0, jumpVelocity = 0, jumpCount = 0, duckTimer = 0;
+  let invulnTimer = 0, hitFlash = 0, attackTimer = 0, attackCooldown = 0;
+  let atDoorTimer = 0, atDoorCooldown = 0, dashTimer = 0, dashCooldown = 0;
+  let boss = null, bossReady = false;
+  let objects = [], enemies = [], nextObjectId = 1;
+  let shrineResolved = false, chosenSkill = null, pendingEquip = null;
+  let shopUsed = false, shopStage = -1;
+  let toastTimer = 0, toastText = &#x27;&#x27;;
+  let time = 0, lastTime = 0, muted = true, audioContext = null;
+  const keys = Object.create(null);
+  let animationFrame = 0;
+
+  function loadProfile() {
+    try {
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) return defaultProfile();
+      const obj = JSON.parse(raw);
+      const d = defaultProfile();
+      const merged = {...d, ...obj};
+      merged.regression = normalizeDecimal(String(merged.regression ?? &#x27;2&#x27;));
+      merged.unlocked = Array.isArray(merged.unlocked) ? [...new Set([...d.unlocked, ...merged.unlocked.filter(id =&gt; skills[id])])] : d.unlocked;
+      merged.equipped = Array.isArray(merged.equipped) ? [...new Set(merged.equipped.filter(id =&gt; skills[id] &amp;&amp; ![&#x27;regression&#x27;,&#x27;deathdoor&#x27;].includes(id)))].slice(0,3) : [];
+      merged.upgrades = {...d.upgrades, ...(merged.upgrades || {})};
+      merged.level = Math.max(3, Math.floor(Number(merged.level) || 3));
+      merged.totalExp = Math.max(0, Math.floor(Number(merged.totalExp) || 0));
+      merged.levelExp = Math.max(0, Math.floor(Number(merged.levelExp) || 0));
+      merged.upgradePoints = Math.max(0, Math.floor(Number(merged.upgradePoints) || 0));
+      return merged;
+    } catch { return defaultProfile(); }
+  }
+  function normalizeDecimal(value) {
+    const cleaned = (value || &#x27;0&#x27;).replace(/[^0-9]/g, &#x27;&#x27;).replace(/^0+(?=\d)/, &#x27;&#x27;);
+    return cleaned || &#x27;0&#x27;;
+  }
+  function incrementDecimal(value) {
+    const a = normalizeDecimal(value).split(&#x27;&#x27;);
+    let i = a.length - 1, carry = 1;
+    while (i &gt;= 0 &amp;&amp; carry) {
+      const n = a[i].charCodeAt(0) - 48 + carry;
+      a[i] = String(n % 10); carry = n &gt;= 10 ? 1 : 0; i--;
+    }
+    if (carry) a.unshift(&#x27;1&#x27;);
+    return a.join(&#x27;&#x27;);
+  }
+  function saveProfile() {
+    try {
+      localStorage.setItem(SAVE_KEY, JSON.stringify(profile));
+      return true;
+    } catch {
+      showToast(&#x27;Browser storage is unavailable; progress may not persist.&#x27;);
+      return false;
+    }
+  }
+  function hasSkill(id) { return profile.equipped.includes(id); }
+  function hasUnlocked(id) { return profile.unlocked.includes(id); }
+  function xpNeeded() { return (profile.level - 1) * 50; }
+  function addExp(amount) {
+    const bonus = hasSkill(&#x27;soulharvest&#x27;) ? Math.round(amount * 1.35) : amount;
+    profile.totalExp += bonus;
+    profile.levelExp += bonus;
+    let levels = 0;
+    while (profile.levelExp &gt;= xpNeeded()) {
+      profile.levelExp -= xpNeeded();
+      profile.level++;
+      profile.upgradePoints++;
+      levels++;
+    }
+    saveProfile();
+    if (levels) showToast(`Level up! Level ${profile.level} · +${levels} upgrade point${levels &gt; 1 ? &#x27;s&#x27; : &#x27;&#x27;}`);
+    else showToast(`+${bonus} EXP`);
+    renderOverlay();
+  }
+  function spendUpgrade(key) {
+    if (profile.upgradePoints &lt; 1) return;
+    profile.upgradePoints--;
+    profile.upgrades[key] = (profile.upgrades[key] || 0) + 1;
+    if (key === &#x27;endurance&#x27;) { maxStamina += 15; stamina = Math.min(maxStamina, stamina + 15); }
+    saveProfile();
+    showToast(`${key[0].toUpperCase()+key.slice(1)} upgraded`);
+    renderOverlay();
+  }
+  function showToast(text) {
+    toastText = text; toastTimer = 2.0;
+    toastEl.textContent = text; toastEl.classList.add(&#x27;show&#x27;);
+  }
+  function hideToast() { toastEl.classList.remove(&#x27;show&#x27;); }
+  function setState(next) { state = next; renderOverlay(); }
+
+  function renderOverlay() {
+    overlay.dataset.state = state;
+    overlay.classList.remove(&#x27;hidden&#x27;);
+    let html = &#x27;&#x27;;
+    const infoChips = `&lt;div class=&quot;meta-row&quot;&gt;&lt;span class=&quot;chip&quot;&gt;Level ${profile.level}&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;Total EXP ${profile.totalExp.toLocaleString()}&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;Regression ${escapeHtml(profile.regression)}&lt;/span&gt;&lt;/div&gt;`;
+    if (state === &#x27;playing&#x27; || state === &#x27;boss&#x27;) { overlay.classList.add(&#x27;hidden&#x27;); overlay.innerHTML = &#x27;&#x27;; return; }
+    if (state === &#x27;title&#x27;) {
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;A story of death, growth &amp; defiance&lt;/div&gt;&lt;h2&gt;Three Ways to Survive&lt;br&gt;in a Ruined World&lt;/h2&gt;&lt;p class=&quot;lede&quot;&gt;The world has ended more times than you can remember. Your sword is still sharp. Your coat is still black. And this time, the Demon King will not keep what is yours.&lt;/p&gt;${infoChips}&lt;div class=&quot;panel-actions&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;start&quot;&gt;Begin your next attempt&lt;/button&gt;&lt;button data-action=&quot;archive&quot;&gt;Skill archive&lt;/button&gt;&lt;button data-action=&quot;controls&quot;&gt;How to play&lt;/button&gt;&lt;/div&gt;&lt;div class=&quot;notice&quot;&gt;Regression has no limit. Death costs this run&#x27;s coins, but never takes away your skills, EXP, levels, or permanent upgrades.&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;intro&#x27;) {
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;Opening memory · Attempt ${escapeHtml(profile.regression === &#x27;2&#x27; ? &#x27;III&#x27; : profile.regression)}&lt;/div&gt;&lt;h2&gt;The third life&lt;br&gt;is not the last.&lt;/h2&gt;&lt;p class=&quot;lede&quot;&gt;Rain whispers against a ruined road. Your companion was taken beyond six Scenarios, into the Demon King&#x27;s Castle. You have died twice already—and each time, you returned with more of yourself intact.&lt;/p&gt;&lt;p&gt;You draw your sword. The world moves again.&lt;/p&gt;&lt;div class=&quot;panel-actions&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;begin&quot;&gt;Begin the Forest Maze&lt;/button&gt;&lt;button data-action=&quot;archive&quot;&gt;Review skills&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;pause&#x27;) {
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;The world holds its breath&lt;/div&gt;&lt;h2&gt;Paused&lt;/h2&gt;&lt;p&gt;Your run is safe while the game is paused.&lt;/p&gt;&lt;div class=&quot;panel-actions&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;resume&quot;&gt;Resume run&lt;/button&gt;&lt;button data-action=&quot;archive&quot;&gt;Manage skills&lt;/button&gt;&lt;button data-action=&quot;title&quot;&gt;Return to title&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;skills&#x27;) {
+      const pair = skillPairs[terrainIndex] || skillPairs[0];
+      const cards = pair.map(id =&gt; {
+        const s = skills[id];
+        const learned = hasUnlocked(id);
+        return `&lt;button class=&quot;skill-card&quot; data-action=&quot;choose-skill&quot; data-skill=&quot;${id}&quot;&gt;&lt;span class=&quot;icon&quot;&gt;${s.icon}&lt;/span&gt;&lt;strong&gt;${s.name}&lt;/strong&gt;&lt;small&gt;${s.desc}&lt;/small&gt;&lt;em&gt;${learned ? &#x27;Already unlocked · choose for +25 EXP&#x27; : (profile.equipped.length &lt; 3 ? &#x27;Unlock permanently &amp; equip&#x27; : &#x27;Unlock permanently · choose a slot&#x27;)}&lt;/em&gt;&lt;/button&gt;`;
+      }).join(&#x27;&#x27;);
+      html = `&lt;div class=&quot;panel wide&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;Scenario ${terrainIndex+1} · Skill shrine&lt;/div&gt;&lt;h2&gt;Choose your advantage.&lt;/h2&gt;&lt;p&gt;Pick one reward. New skills stay unlocked forever. You can equip up to three additional skills; if all slots are full, you may replace one or keep the new skill for later.&lt;/p&gt;&lt;div class=&quot;skill-grid&quot;&gt;${cards}&lt;/div&gt;&lt;div class=&quot;panel-actions&quot;&gt;&lt;button data-action=&quot;archive&quot;&gt;View skill archive&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;replace&#x27;) {
+      const s = skills[pendingEquip];
+      const equipped = profile.equipped.map(id =&gt; `&lt;button data-action=&quot;replace-skill&quot; data-old=&quot;${id}&quot;&gt;&lt;span&gt;${skills[id].icon} ${skills[id].name}&lt;/span&gt;&lt;span class=&quot;sub&quot;&gt;Replace this skill&lt;/span&gt;&lt;/button&gt;`).join(&#x27;&#x27;);
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;Loadout full · Skill unlocked&lt;/div&gt;&lt;h2&gt;Make room?&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;${s ? s.name : &#x27;New skill&#x27;}&lt;/strong&gt; is permanently unlocked. Choose one equipped skill to replace, or keep your current loadout and equip it later from the Skill Archive.&lt;/p&gt;&lt;div class=&quot;choice-list&quot;&gt;${equipped}&lt;/div&gt;&lt;div class=&quot;panel-actions&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;keep-loadout&quot;&gt;Keep current loadout&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;shop&#x27;) {
+      const canBuy = !shopUsed;
+      const upgrades = `&lt;div class=&quot;notice&quot;&gt;Upgrade points: &lt;strong&gt;${profile.upgradePoints}&lt;/strong&gt;. These upgrades are permanent and do not use your one coin purchase.&lt;/div&gt;&lt;div class=&quot;choice-list&quot;&gt;&lt;button data-action=&quot;upgrade&quot; data-upgrade=&quot;power&quot; ${profile.upgradePoints &lt; 1 ? &#x27;disabled&#x27; : &#x27;&#x27;}&gt;&lt;span&gt;⚔ Power &lt;span class=&quot;sub&quot;&gt;· Lv ${profile.upgrades.power || 0} · +10% sword damage each&lt;/span&gt;&lt;/span&gt;&lt;span&gt;+1&lt;/span&gt;&lt;/button&gt;&lt;button data-action=&quot;upgrade&quot; data-upgrade=&quot;endurance&quot; ${profile.upgradePoints &lt; 1 ? &#x27;disabled&#x27; : &#x27;&#x27;}&gt;&lt;span&gt;◇ Endurance &lt;span class=&quot;sub&quot;&gt;· Lv ${profile.upgrades.endurance || 0} · +15 stamina each&lt;/span&gt;&lt;/span&gt;&lt;span&gt;+1&lt;/span&gt;&lt;/button&gt;&lt;button data-action=&quot;upgrade&quot; data-upgrade=&quot;recovery&quot; ${profile.upgradePoints &lt; 1 ? &#x27;disabled&#x27; : &#x27;&#x27;}&gt;&lt;span&gt;✚ Recovery &lt;span class=&quot;sub&quot;&gt;· Lv ${profile.upgrades.recovery || 0} · stronger healing purchases&lt;/span&gt;&lt;/span&gt;&lt;span&gt;+1&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;`;
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;Scenario ${terrainIndex+1} complete&lt;/div&gt;&lt;h2&gt;Catch your breath.&lt;/h2&gt;&lt;p&gt;You made it through &lt;strong&gt;${terrains[terrainIndex].name}&lt;/strong&gt;. Your health carries forward. Spend coins carefully before the next stretch.&lt;/p&gt;&lt;div class=&quot;meta-row&quot;&gt;&lt;span class=&quot;chip&quot;&gt;♥ ${hearts}/8 hearts&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;◉ ${runCoins} coins&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;✦ ${profile.levelExp}/${xpNeeded()} EXP to next level&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;choice-list&quot;&gt;&lt;button data-action=&quot;buy-heal&quot; ${(!canBuy || runCoins &lt; 10 || hearts &gt;= 8) ? &#x27;disabled&#x27; : &#x27;&#x27;}&gt;&lt;span&gt;✚ Healing &lt;span class=&quot;sub&quot;&gt;· Restore ${2 + (profile.upgrades.recovery || 0)} hearts&lt;/span&gt;&lt;/span&gt;&lt;span&gt;10 coins&lt;/span&gt;&lt;/button&gt;&lt;button data-action=&quot;buy-shield&quot; ${(!canBuy || runCoins &lt; 15) ? &#x27;disabled&#x27; : &#x27;&#x27;}&gt;&lt;span&gt;⬡ Temporary shield &lt;span class=&quot;sub&quot;&gt;· Absorb one hit in the next Scenario&lt;/span&gt;&lt;/span&gt;&lt;span&gt;15 coins&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;${!canBuy ? &#x27;&lt;div class=&quot;notice&quot;&gt;Your one coin purchase has been used at this safe point.&lt;/div&gt;&#x27; : &#x27;&#x27;}${upgrades}&lt;div class=&quot;panel-actions&quot;&gt;&lt;button data-action=&quot;archive&quot;&gt;Manage skills&lt;/button&gt;&lt;button class=&quot;primary&quot; data-action=&quot;next-stage&quot;&gt;Continue forward →&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;archive&#x27;) {
+      const unlocked = profile.unlocked.filter(id =&gt; ![&#x27;regression&#x27;,&#x27;deathdoor&#x27;].includes(id));
+      const list = unlocked.length ? unlocked.map(id =&gt; {
+        const s = skills[id], on = hasSkill(id);
+        return `&lt;button data-action=&quot;toggle-skill&quot; data-skill=&quot;${id}&quot;&gt;&lt;span&gt;${s.icon} ${s.name}&lt;br&gt;&lt;span class=&quot;sub&quot;&gt;${s.desc}&lt;/span&gt;&lt;/span&gt;&lt;span&gt;${on ? &#x27;✓ Equipped&#x27; : &#x27;Equip +&#x27;}&lt;/span&gt;&lt;/button&gt;`;
+      }).join(&#x27;&#x27;) : &#x27;&lt;div class=&quot;notice&quot;&gt;No additional skills unlocked yet. Visit a skill shrine during a Scenario.&lt;/div&gt;&#x27;;
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;Permanent collection&lt;/div&gt;&lt;h2&gt;Skill Archive&lt;/h2&gt;&lt;p&gt;Equip up to three additional unlocked skills. Regression and At Death&#x27;s Door are always available and do not use slots.&lt;/p&gt;&lt;div class=&quot;meta-row&quot;&gt;&lt;span class=&quot;chip&quot;&gt;Equipped ${profile.equipped.length}/3&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;Unlocked ${unlocked.length}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;choice-list&quot;&gt;${list}&lt;/div&gt;&lt;div class=&quot;panel-actions&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;archive-back&quot;&gt;Back&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;regression&#x27;) {
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;The end is another beginning&lt;/div&gt;&lt;h2&gt;Regression.&lt;/h2&gt;&lt;p class=&quot;lede&quot;&gt;Your vision fades. The road folds back upon itself—and you return with your memories, skills and experience intact.&lt;/p&gt;&lt;div class=&quot;meta-row&quot;&gt;&lt;span class=&quot;chip&quot;&gt;Regression ${escapeHtml(profile.regression)}&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;Level ${profile.level}&lt;/span&gt;&lt;span class=&quot;chip&quot;&gt;Permanent EXP ${profile.totalExp.toLocaleString()}&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;notice&quot;&gt;Lost this attempt: ${lastLostCoins} coins and temporary effects. Permanent progression has been preserved.&lt;/div&gt;&lt;div class=&quot;panel-actions&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;regress-now&quot;&gt;Return to the Forest Maze&lt;/button&gt;&lt;button data-action=&quot;archive&quot;&gt;Skill archive&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;victory&#x27;) {
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;Ending unlocked · The loop is broken&lt;/div&gt;&lt;h2&gt;You reached them.&lt;/h2&gt;&lt;p class=&quot;lede&quot;&gt;The Demon King falls. Beyond the broken throne, your companion is waiting. For the first time in countless lives, the road ends in something other than death.&lt;/p&gt;&lt;p&gt;You can begin another run whenever you are ready. Your permanent progression remains yours.&lt;/p&gt;${infoChips}&lt;div class=&quot;panel-actions&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;start&quot;&gt;Begin another attempt&lt;/button&gt;&lt;button data-action=&quot;archive&quot;&gt;Skill archive&lt;/button&gt;&lt;button data-action=&quot;title&quot;&gt;Title screen&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    } else if (state === &#x27;help&#x27;) {
+      html = `&lt;div class=&quot;panel&quot;&gt;&lt;div class=&quot;eyebrow&quot;&gt;Field guide&lt;/div&gt;&lt;h2&gt;How to survive&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Space&lt;/strong&gt; jumps. &lt;strong&gt;Down&lt;/strong&gt; ducks. &lt;strong&gt;Up&lt;/strong&gt; sprints and uses stamina. &lt;strong&gt;Right&lt;/strong&gt; accelerates, while &lt;strong&gt;Left&lt;/strong&gt; brakes. Press &lt;strong&gt;X&lt;/strong&gt; to swing your sword. Press &lt;strong&gt;E&lt;/strong&gt; at 2 hearts or fewer to activate At Death&#x27;s Door. If equipped, &lt;strong&gt;Q&lt;/strong&gt; uses Echo Dash. Press &lt;strong&gt;P&lt;/strong&gt; or &lt;strong&gt;Esc&lt;/strong&gt; to pause.&lt;/p&gt;&lt;p&gt;Jump over gaps and ground hazards, duck beneath hanging threats, and watch for enemy warning flashes. Hit X when a demon is close enough. Every terrain offers a skill choice; safe points let you buy healing or a shield.&lt;/p&gt;&lt;div class=&quot;notice&quot;&gt;Death returns you to the Forest Maze and removes this run&#x27;s coins, but never removes skills, EXP, levels or permanent upgrades. Regress as often as you need.&lt;/div&gt;&lt;div class=&quot;panel-actions&quot;&gt;&lt;button class=&quot;primary&quot; data-action=&quot;help-back&quot;&gt;Back&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;`;
+    }
+    overlay.innerHTML = html;
+    overlay.dataset.state = state;
+    overlay.classList.remove(&#x27;hidden&#x27;);
+    const firstButton = overlay.querySelector(&#x27;button:not(:disabled)&#x27;);
+    if (firstButton) firstButton.focus({preventScroll:true});
+  }
+  function escapeHtml(str) { return String(str).replace(/[&amp;&lt;&gt;&quot;&#x27;]/g, c =&gt; ({&#x27;&amp;&#x27;:&#x27;&amp;amp;&#x27;,&#x27;&lt;&#x27;:&#x27;&amp;lt;&#x27;,&#x27;&gt;&#x27;:&#x27;&amp;gt;&#x27;,&#x27;&quot;&#x27;:&#x27;&amp;quot;&#x27;,&quot;&#x27;&quot;:&#x27;&amp;#39;&#x27;}[c])); }
+
+  function startRun() {
+    terrainIndex = 0; progress = 0; runCoins = 0; hearts = 8;
+    temporaryShield = 0; nextShield = false; phoenixUsed = false;
+    stamina = maxStamina = 100 + 15 * (profile.upgrades.endurance || 0);
+    jumpHeight = 0; jumpVelocity = 0; jumpCount = 0; duckTimer = 0;
+    invulnTimer = 0; hitFlash = 0; attackTimer = 0; attackCooldown = 0;
+    atDoorTimer = 0; atDoorCooldown = 0; dashTimer = 0; dashCooldown = 0;
+    enterTerrain(0);
+    setState(&#x27;playing&#x27;);
+    showToast(&#x27;Forest Maze · Find a way through&#x27;);
+  }
+  function enterTerrain(index) {
+    terrainIndex = index; progress = 0; shrineResolved = false; chosenSkill = null;
+    shopUsed = false; shopStage = -1; boss = null; bossReady = false;
+    objects = []; enemies = []; nextObjectId = 1;
+    const set = hazardSets[index];
+    const positions = [300, 565, 820, 1050, 1435, 1695, 1970, 2220];
+    positions.forEach((pos, i) =&gt; {
+      const template = set[i % set.length];
+      objects.push({id:nextObjectId++, kind:&#x27;hazard&#x27;, type:template.type, need:template.need, pos, handled:false, seed:(index+1)*31+i*7});
+    });
+    // Coin trails are visible guides; their heights vary slightly for a lively scene.
+    for (let j = 0; j &lt; 19; j++) {
+      const pos = 205 + j * 123 + ((j % 3) * 7);
+      if (pos &gt; STAGE_LENGTH - 35) break;
+      objects.push({id:nextObjectId++, kind:&#x27;coin&#x27;, pos, height:[30,54,38,22,47][(j+index)%5], handled:false});
+    }
+    const enemyPositions = index === 6 ? [580, 1080, 1510] : [660, 1570, 2110];
+    enemyPositions.forEach((pos, i) =&gt; {
+      const kinds = [&#x27;imp&#x27;,&#x27;brute&#x27;,&#x27;ranged&#x27;];
+      enemies.push({id:nextObjectId++, pos, kind:kinds[(i+index)%kinds.length], hp:(i===1 ? 2 : 1), maxHp:(i===1 ? 2 : 1), dead:false, attacked:false, warning:0, attackKind:((i+index)%2===0?&#x27;low&#x27;:&#x27;high&#x27;), poison:0, poisonTick:0, flash:0});
+    });
+    if (hasSkill(&#x27;barkskin&#x27;) || hasSkill(&#x27;guardiansigil&#x27;)) temporaryShield = 1;
+    else temporaryShield = nextShield ? 1 : 0;
+    nextShield = false;
+    phoenixUsed = false;
+    saveProfile();
+  }
+  function completeTerrain() {
+    if (terrainIndex &lt; 6) {
+      addExp(30);
+      shopStage = terrainIndex; shopUsed = false;
+      setState(&#x27;shop&#x27;);
+    }
+  }
+  function chooseSkill(id) {
+    if (!skills[id] || shrineResolved) return;
+    shrineResolved = true; chosenSkill = id;
+    if (hasUnlocked(id)) {
+      addExp(25);
+      setState(&#x27;playing&#x27;);
+      return;
+    }
+    profile.unlocked.push(id);
+    if (profile.equipped.length &lt; 3) {
+      profile.equipped.push(id);
+      saveProfile();
+      showToast(`${skills[id].name} unlocked and equipped`);
+      setState(&#x27;playing&#x27;);
+    } else {
+      pendingEquip = id;
+      saveProfile();
+      setState(&#x27;replace&#x27;);
+    }
+  }
+  function replaceSkill(oldId) {
+    if (!pendingEquip) return;
+    const idx = profile.equipped.indexOf(oldId);
+    if (idx &gt;= 0) profile.equipped.splice(idx,1,pendingEquip);
+    saveProfile();
+    showToast(`${skills[pendingEquip].name} equipped`);
+    pendingEquip = null;
+    setState(&#x27;playing&#x27;);
+  }
+  function keepLoadout() {
+    const name = pendingEquip &amp;&amp; skills[pendingEquip] ? skills[pendingEquip].name : &#x27;Skill&#x27;;
+    pendingEquip = null;
+    saveProfile();
+    showToast(`${name} saved in your archive`);
+    setState(&#x27;playing&#x27;);
+  }
+  function toggleSkill(id) {
+    if (hasSkill(id)) {
+      profile.equipped = profile.equipped.filter(x =&gt; x !== id);
+      saveProfile(); renderOverlay(); showToast(`${skills[id].name} unequipped`); return;
+    }
+    if (profile.equipped.length &gt;= 3) { showToast(&#x27;Unequip a skill first · 3 slots maximum&#x27;); return; }
+    if (hasUnlocked(id)) {
+      profile.equipped.push(id); saveProfile(); renderOverlay(); showToast(`${skills[id].name} equipped`);
+    }
+  }
+
+  function useAttack() {
+    if (![&#x27;playing&#x27;,&#x27;boss&#x27;].includes(state) || attackCooldown &gt; 0) return;
+    attackTimer = 0.24; attackCooldown = 0.42;
+    playSound(&#x27;sword&#x27;);
+    const power = 1 + (profile.upgrades.power || 0) * 0.10;
+    const targets = enemies.filter(e =&gt; !e.dead &amp;&amp; e.pos - progress &gt; -35 &amp;&amp; e.pos - progress &lt; 190).sort((a,b) =&gt; a.pos - b.pos);
+    if (targets.length) {
+      const enemy = targets[0];
+      let dmg = Math.max(1, power);
+      if (hasSkill(&#x27;thorncounter&#x27;) &amp;&amp; enemy.warning &gt; 0) dmg += 1;
+      enemy.hp -= dmg; enemy.flash = 0.22;
+      if (hasSkill(&#x27;venomedge&#x27;)) { enemy.poison = 2.8; enemy.poisonTick = 0.5; }
+      if (enemy.hp &lt;= 0) {
+        enemy.dead = true;
+        runCoins += enemy.kind === &#x27;brute&#x27; ? 3 : 2;
+        addExp(enemy.kind === &#x27;brute&#x27; ? 25 : 15);
+        showToast(`${enemy.kind === &#x27;brute&#x27; ? &#x27;Armored demon&#x27; : &#x27;Demon&#x27;} defeated · +coins`);
+        playSound(&#x27;enemy&#x27;);
+      } else showToast(&#x27;Sword hit&#x27;);
+      return;
+    }
+    if (state === &#x27;boss&#x27; &amp;&amp; boss &amp;&amp; boss.hp &gt; 0 &amp;&amp; boss.pos - progress &lt; 270 &amp;&amp; boss.pos - progress &gt; -30) {
+      let dmg = Math.max(1, power);
+      if (hasSkill(&#x27;hellbreaker&#x27;)) dmg += 1;
+      if (hasSkill(&#x27;thorncounter&#x27;) &amp;&amp; boss.windup &gt; 0) dmg += 1;
+      boss.hp = Math.max(0, boss.hp - dmg);
+      boss.flash = 0.24;
+      playSound(&#x27;bossHit&#x27;);
+      if (boss.hp &lt;= 0) finishGame(); else showToast(`Demon King struck · ${boss.hp} strength remains`);
+    }
+  }
+  function activateDeathDoor() {
+    if (![&#x27;playing&#x27;,&#x27;boss&#x27;].includes(state)) return;
+    if (!hasUnlocked(&#x27;deathdoor&#x27;)) return;
+    if (hearts &gt; 2) { showToast(&quot;At Death&#x27;s Door needs 2 hearts or fewer&quot;); return; }
+    if (atDoorCooldown &gt; 0) { showToast(`At Death&#x27;s Door cooling down · ${Math.ceil(atDoorCooldown)}s`); return; }
+    atDoorTimer = 5; atDoorCooldown = 30;
+    showToast(&quot;At Death&#x27;s Door activated · speed doubled&quot;); playSound(&#x27;skill&#x27;);
+  }
+  function activateDash() {
+    if (![&#x27;playing&#x27;,&#x27;boss&#x27;].includes(state) || !hasSkill(&#x27;echodash&#x27;)) return;
+    if (dashCooldown &gt; 0) { showToast(`Echo Dash · ${Math.ceil(dashCooldown)}s cooldown`); return; }
+    dashTimer = 0.42; dashCooldown = 8; invulnTimer = Math.max(invulnTimer,0.42);
+    showToast(&#x27;Echo Dash&#x27;); playSound(&#x27;skill&#x27;);
+  }
+  function jump() {
+    if (![&#x27;playing&#x27;,&#x27;boss&#x27;].includes(state)) return;
+    const maxJumps = hasSkill(&#x27;frostleap&#x27;) ? 2 : 1;
+    if (jumpCount &gt;= maxJumps) return;
+    const power = hasSkill(&#x27;windstep&#x27;) ? 500 : 440;
+    jumpVelocity = power; jumpCount++;
+    playSound(&#x27;jump&#x27;);
+  }
+  function damage(amount, reason) {
+    if (invulnTimer &gt; 0 || dashTimer &gt; 0) return;
+    if (temporaryShield &gt; 0) {
+      temporaryShield = 0; invulnTimer = 0.6; hitFlash = 0.45;
+      showToast(&#x27;Your shield absorbed the hit&#x27;); playSound(&#x27;shield&#x27;); return;
+    }
+    hearts = Math.max(0, hearts - amount); invulnTimer = 1.05; hitFlash = 0.55;
+    showToast(reason || `Hit · −${amount} heart${amount&gt;1?&#x27;s&#x27;:&#x27;&#x27;}`); playSound(&#x27;hurt&#x27;);
+    if (hearts &lt;= 0) triggerRegression();
+  }
+  function triggerRegression() {
+    if (state === &#x27;regression&#x27; || state === &#x27;victory&#x27;) return;
+    profile.regression = incrementDecimal(profile.regression);
+    saveProfile();
+    const lost = runCoins;
+    lastLostCoins = lost;
+    runCoins = 0; hearts = 8; temporaryShield = 0;
+    state = &#x27;regression&#x27;; renderOverlay();
+    showToast(`${lost} temporary coins lost · permanent progress preserved`);
+  }
+  function finishGame() {
+    addExp(100);
+    state = &#x27;victory&#x27;; saveProfile(); renderOverlay(); playSound(&#x27;victory&#x27;);
+  }
+
+  function update(dt) {
+    time += dt;
+    if (toastTimer &gt; 0) { toastTimer -= dt; if (toastTimer &lt;= 0) hideToast(); }
+    if (state === &#x27;regression&#x27;) return;
+    if (![&#x27;playing&#x27;,&#x27;boss&#x27;].includes(state)) return;
+
+    if (invulnTimer &gt; 0) invulnTimer = Math.max(0,invulnTimer-dt);
+    if (hitFlash &gt; 0) hitFlash = Math.max(0,hitFlash-dt);
+    if (attackTimer &gt; 0) attackTimer = Math.max(0,attackTimer-dt);
+    if (attackCooldown &gt; 0) attackCooldown = Math.max(0,attackCooldown-dt);
+    if (atDoorTimer &gt; 0) atDoorTimer = Math.max(0,atDoorTimer-dt);
+    if (atDoorCooldown &gt; 0) atDoorCooldown = Math.max(0,atDoorCooldown-dt);
+    if (dashTimer &gt; 0) dashTimer = Math.max(0,dashTimer-dt);
+    if (dashCooldown &gt; 0) dashCooldown = Math.max(0,dashCooldown-dt);
+    if (duckTimer &gt; 0) duckTimer = Math.max(0,duckTimer-dt);
+
+    if (keys.ArrowDown) duckTimer = Math.max(duckTimer, hasSkill(&#x27;sandslide&#x27;) ? 0.72 : 0.5);
+    if (jumpHeight &gt; 0 || jumpVelocity &gt; 0) {
+      jumpHeight += jumpVelocity * dt;
+      jumpVelocity -= (hasSkill(&#x27;windstep&#x27;) ? 980 : 1120) * dt;
+      if (jumpHeight &lt;= 0) { jumpHeight = 0; jumpVelocity = 0; jumpCount = 0; }
+    }
+    const grounded = jumpHeight &lt; 24;
+    let speed = 230;
+    if (keys.ArrowRight) speed += 58;
+    if (keys.ArrowLeft) speed = hasSkill(&#x27;icegrip&#x27;) &amp;&amp; terrainIndex===1 ? 165 : 145;
+    if (keys.ArrowUp &amp;&amp; !keys.ArrowLeft) {
+      if (stamina &gt; 0) { speed = Math.max(speed,300); stamina = Math.max(0,stamina-32*dt); }
+    } else stamina = Math.min(maxStamina, stamina + 22*dt);
+    if (atDoorTimer &gt; 0) speed = 460; // exactly 2× normal speed; does not stack with sprint
+    if (dashTimer &gt; 0) speed = Math.min(420,speed*1.3);
+    const oldProgress = progress;
+    if (state === &#x27;playing&#x27;) progress += speed * dt;
+    else if (state === &#x27;boss&#x27; &amp;&amp; boss &amp;&amp; boss.pos-progress &gt; 160) progress += speed * dt;
+
+    // Coins and hazards are checked in world space so the game remains consistent at any frame rate.
+    for (const o of objects) {
+      if (o.handled) continue;
+      const delta = o.pos - progress;
+      if (o.kind === &#x27;coin&#x27;) {
+        if (Math.abs(delta) &lt; 27) {
+          o.handled = true;
+          runCoins += hasSkill(&#x27;scavengerluck&#x27;) ? 2 : 1;
+          playSound(&#x27;coin&#x27;);
+        } else if (delta &lt; -40) o.handled = true;
+        continue;
+      }
+      if (delta &lt;= 24 &amp;&amp; delta &gt;= -28) {
+        o.handled = true;
+        const avoid = o.need === &#x27;duck&#x27; ? duckTimer &gt; 0.05 : jumpHeight &gt; 26;
+        if (!avoid) damage(o.type === &#x27;lava&#x27; || o.type === &#x27;hellfire&#x27; ? 2 : 1, `${prettyHazard(o.type)} · ${o.need === &#x27;duck&#x27; ? &#x27;duck to avoid&#x27; : &#x27;jump to avoid&#x27;}`);
+        if (state === &#x27;regression&#x27;) return;
+      } else if (delta &lt; -35) o.handled = true;
+    }
+
+    for (const e of enemies) {
+      if (e.dead) continue;
+      if (e.flash &gt; 0) e.flash = Math.max(0,e.flash-dt);
+      if (e.poison &gt; 0) {
+        e.poison -= dt; e.poisonTick -= dt;
+        if (e.poisonTick &lt;= 0 &amp;&amp; e.poison &gt; 0) { e.poisonTick = 0.65; e.hp -= 1; e.flash = 0.16; if (e.hp &lt;= 0) { e.dead=true; runCoins+=2; addExp(e.kind===&#x27;brute&#x27;?25:15); } }
+      }
+      const gap = e.pos - progress;
+      if (!e.attacked &amp;&amp; gap &lt;= (hasSkill(&#x27;predatorsense&#x27;) ? 205 : 150) &amp;&amp; gap &gt;= -55 &amp;&amp; e.warning &lt;= 0) e.warning = 0.72;
+      if (e.warning &gt; 0) {
+        e.warning -= dt;
+        if (e.warning &lt;= 0) {
+          e.attacked = true;
+          const close = e.pos - progress &lt;= 72 &amp;&amp; e.pos - progress &gt;= -65;
+          const dodged = e.attackKind === &#x27;low&#x27; ? jumpHeight &gt; 25 : duckTimer &gt; 0.05;
+          const countered = hasSkill(&#x27;thorncounter&#x27;) &amp;&amp; attackTimer &gt; 0;
+          if (close &amp;&amp; !dodged &amp;&amp; !countered) damage(1, &#x27;Demon attack · dodge the warning&#x27;);
+          if (state === &#x27;regression&#x27;) return;
+          else if (countered) { e.hp -= 1; e.flash=0.25; if (e.hp&lt;=0) { e.dead=true; runCoins+=2; addExp(15); } else showToast(&#x27;Thorn Counter!&#x27;); }
+        }
+      }
+    }
+
+    if (state === &#x27;playing&#x27; &amp;&amp; !shrineResolved &amp;&amp; progress &gt;= SKILL_AT) {
+      setState(&#x27;skills&#x27;); return;
+    }
+    if (state === &#x27;playing&#x27; &amp;&amp; terrainIndex &lt; 6 &amp;&amp; progress &gt;= STAGE_LENGTH) {
+      completeTerrain(); return;
+    }
+    if (state === &#x27;playing&#x27; &amp;&amp; terrainIndex === 6 &amp;&amp; progress &gt;= BOSS_START) {
+      boss = {pos:STAGE_LENGTH-90, hp:16, maxHp:16, windup:0, cooldown:1.1, attackType:&#x27;hellfire&#x27;, cycle:0, flash:0, effect:0};
+      for (const o of objects) if (o.pos &gt; BOSS_START) o.handled = true;
+      for (const e of enemies) if (e.pos &gt; progress - 50) e.dead = true;
+      state=&#x27;boss&#x27;; bossReady=false; renderOverlay(); showToast(&#x27;The Demon King stands before you&#x27;); playSound(&#x27;boss&#x27;);
+    }
+    if (state === &#x27;boss&#x27; &amp;&amp; boss) updateBoss(dt);
+  }
+  function updateBoss(dt) {
+    if (!boss) return;
+    if (boss.flash &gt; 0) boss.flash = Math.max(0,boss.flash-dt);
+    if (boss.effect &gt; 0) boss.effect = Math.max(0,boss.effect-dt);
+    const gap = boss.pos-progress;
+    bossReady = gap &lt;= 180;
+    if (boss.cooldown &gt; 0) boss.cooldown -= dt;
+    if (boss.windup &gt; 0) {
+      boss.windup -= dt;
+      if (boss.windup &lt;= 0) {
+        boss.effect = 0.45;
+        let dodged = false;
+        if (boss.attackType === &#x27;hellfire&#x27;) dodged = jumpHeight &gt; 30;
+        else if (boss.attackType === &#x27;soul sweep&#x27;) dodged = duckTimer &gt; 0.05;
+        else dodged = keys.ArrowLeft || dashTimer &gt; 0;
+        if (!dodged &amp;&amp; gap &lt; 330) {
+          if (hearts &lt;= 2 &amp;&amp; hasSkill(&#x27;phoenixthread&#x27;) &amp;&amp; !phoenixUsed) { hearts=1; phoenixUsed=true; invulnTimer=1.1; showToast(&#x27;Phoenix Thread keeps you alive&#x27;); }
+          else damage(2,`Demon King&#x27;s ${boss.attackType} · evade it`);
+        } else showToast(&#x27;Attack evaded&#x27;);
+        boss.cooldown = 1.6;
+        boss.cycle++;
+      }
+    } else if (boss.cooldown &lt;= 0 &amp;&amp; bossReady) {
+      boss.attackType = [&#x27;hellfire&#x27;,&#x27;soul sweep&#x27;,&#x27;charge&#x27;][boss.cycle % 3];
+      boss.windup = 1.05;
+      showToast(boss.attackType === &#x27;hellfire&#x27; ? &#x27;Warning: hellfire · JUMP&#x27; : boss.attackType === &#x27;soul sweep&#x27; ? &#x27;Warning: soul sweep · DUCK&#x27; : &#x27;Warning: charge · BRAKE or DASH&#x27;);
+      playSound(&#x27;warning&#x27;);
+    }
+  }
+  function prettyHazard(type) {
+    const map={root:&#x27;Exposed roots&#x27;,branch:&#x27;Low branch&#x27;,gap:&#x27;Open gap&#x27;,roots:&#x27;Root tangle&#x27;,thorn:&#x27;Thorn barrier&#x27;,icicle:&#x27;Falling icicle&#x27;,crevasse:&#x27;Crevasse&#x27;,snowdrift:&#x27;Snowdrift&#x27;,icewall:&#x27;Ice wall&#x27;,mire:&#x27;Sinking mire&#x27;,reed:&#x27;Low reeds&#x27;,toxic:&#x27;Toxic pool&#x27;,plant:&#x27;Marsh plant&#x27;,vent:&#x27;Heat vent&#x27;,fallen:&#x27;Fallen ruin&#x27;,dune:&#x27;Collapsing dune&#x27;,vine:&#x27;Hanging vines&#x27;,rubble:&#x27;Rubble&#x27;,trap:&#x27;Castle trap&#x27;,blade:&#x27;Swinging blade&#x27;,falling:&#x27;Falling stone&#x27;,hellfire:&#x27;Hellfire&#x27;,soulchain:&#x27;Soul chain&#x27;,lava:&#x27;Lava fissure&#x27;};
+    return map[type] || &#x27;Hazard&#x27;;
+  }
+
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    drawBackground();
+    drawWorldObjects();
+    drawEnemies();
+    if (state === &#x27;boss&#x27; &amp;&amp; boss) drawBoss();
+    drawPlayer(PLAYER_X, GROUND-jumpHeight, duckTimer &gt; 0, attackTimer &gt; 0);
+    drawHud();
+    if (state === &#x27;regression&#x27;) drawRegressionVignette();
+    if (state === &#x27;victory&#x27;) drawVictoryGlints();
+  }
+  function drawBackground() {
+    const t = terrains[terrainIndex] || terrains[0];
+    const g = ctx.createLinearGradient(0,0,0,H);
+    g.addColorStop(0,t.sky[0]); g.addColorStop(1,t.sky[1]);
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    // soft atmospheric glow
+    const glow=ctx.createRadialGradient(690,105,10,690,105,280);
+    glow.addColorStop(0,hexAlpha(t.glow,0.21)); glow.addColorStop(1,hexAlpha(t.glow,0));
+    ctx.fillStyle=glow; ctx.fillRect(350,0,610,390);
+    if (t.skyThing === &#x27;sun&#x27;) {
+      ctx.fillStyle=hexAlpha(&#x27;#ffdba0&#x27;,.14); ctx.beginPath(); ctx.arc(745,118,68,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=&#x27;#ffd49b&#x27;; ctx.beginPath(); ctx.arc(745,118,34,0,Math.PI*2); ctx.fill();
+    } else if (t.skyThing === &#x27;infernal&#x27;) {
+      ctx.fillStyle=&#x27;rgba(255,89,83,.14)&#x27;; ctx.beginPath(); ctx.arc(730,120,92,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=&#x27;#f36e70&#x27;; ctx.beginPath(); ctx.arc(730,120,42,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=&#x27;#ffb47b&#x27;; ctx.beginPath(); ctx.arc(718,110,12,0,Math.PI*2); ctx.fill();
+    } else {
+      ctx.fillStyle=&#x27;rgba(239,239,255,.13)&#x27;; ctx.beginPath(); ctx.arc(740,93,43,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=&#x27;#e8e7f5&#x27;; ctx.beginPath(); ctx.arc(740,93,24,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle=hexAlpha(t.sky[0],.8); ctx.beginPath(); ctx.arc(750,84,24,0,Math.PI*2); ctx.fill();
+    }
+    // Stars and drifting motes
+    for (let i=0;i&lt;38;i++) {
+      const x = (i*137 + 49) % W;
+      const y = 28 + ((i*67)%235);
+      const twinkle=.24+.28*(.5+.5*Math.sin(time*1.3+i));
+      ctx.fillStyle=hexAlpha(&#x27;#eff0ff&#x27;,twinkle); ctx.fillRect(x,y,1.7,1.7);
+    }
+    // distant ridge layers
+    drawRidge(0.12,t.far, 250, 0.00018);
+    drawRidge(0.25,t.mid, 315, 0.00034);
+    drawLandscapeDetails(t);
+    // Ground
+    const groundGrad=ctx.createLinearGradient(0,GROUND,0,H);
+    groundGrad.addColorStop(0,t.ground); groundGrad.addColorStop(1,&#x27;#11111e&#x27;);
+    ctx.fillStyle=groundGrad; ctx.fillRect(0,GROUND,W,H-GROUND);
+    ctx.fillStyle=hexAlpha(t.glow,.45); ctx.fillRect(0,GROUND,W,2);
+    // flowing ground dashes
+    const offset=(progress*0.7)%105;
+    for (let i=-1;i&lt;12;i++) {
+      const x=i*105-offset;
+      ctx.fillStyle=hexAlpha(t.accent,.12); ctx.fillRect(x,GROUND+30,55,2);
+      ctx.fillStyle=&#x27;rgba(255,255,255,.035)&#x27;; ctx.fillRect(x+28,GROUND+55,30,1);
+    }
+    // foreground ambient particles
+    for (let i=0;i&lt;14;i++) {
+      const x=(i*83 + time*(8+(i%4)*3))%W;
+      const y=90+((i*53+time*(12+i%3*4))%305);
+      ctx.fillStyle=hexAlpha(t.accent,.15+0.1*Math.sin(time+i));
+      ctx.beginPath(); ctx.arc(x,y,1.2+(i%3)*.45,0,Math.PI*2); ctx.fill();
+    }
+    // hell fissures along the castle floor
+    if (terrainIndex===6) {
+      for (let i=0;i&lt;7;i++) {
+        const x=(i*163-(progress*.35)%163+W)%W;
+        ctx.strokeStyle=&#x27;rgba(255,94,75,.45)&#x27;; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(x,GROUND+21); ctx.lineTo(x+13,GROUND+40); ctx.lineTo(x+4,GROUND+53); ctx.stroke();
+      }
+    }
+  }
+  function drawRidge(parallax,color,baseY,factor) {
+    const shift=(progress*factor*W*3)%260;
+    ctx.fillStyle=color; ctx.beginPath(); ctx.moveTo(0,H);
+    for (let x=-260; x&lt;=W+260; x+=130) {
+      const xx=x-shift;
+      const peakY=baseY-(Math.sin((x+terrainIndex*73)*.017)*34)-((Math.abs((x+terrainIndex*49)%260)&lt;20)?48:0);
+      ctx.lineTo(xx,peakY); ctx.lineTo(xx+65,peakY-25-(terrainIndex%3)*6); ctx.lineTo(xx+130,peakY+3);
+    }
+    ctx.lineTo(W,H); ctx.closePath(); ctx.fill();
+  }
+  function drawLandscapeDetails(t) {
+    ctx.save();
+    const drift=(progress*0.17)%180;
+    if (terrainIndex===0 || terrainIndex===4) {
+      for(let i=-1;i&lt;8;i++) {
+        const x=i*150-drift;
+        const h=90+(i*37%65);
+        ctx.fillStyle=terrainIndex===0?&#x27;#1d2933&#x27;:&#x27;#22312f&#x27;;
+        ctx.fillRect(x+24,GROUND-h*.65,15,h*.65);
+        ctx.beginPath(); ctx.moveTo(x-20,GROUND-h*.34); ctx.lineTo(x+32,GROUND-h-18); ctx.lineTo(x+76,GROUND-h*.34); ctx.closePath(); ctx.fill();
+        ctx.beginPath(); ctx.moveTo(x-16,GROUND-h*.56); ctx.lineTo(x+32,GROUND-h-45); ctx.lineTo(x+76,GROUND-h*.56); ctx.closePath(); ctx.fill();
+        if (terrainIndex===4) { ctx.strokeStyle=&#x27;#3c5948&#x27;; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(x+33,GROUND-h*.4); ctx.bezierCurveTo(x+55,GROUND-h*.5,x+9,GROUND-h*.7,x+40,GROUND-h*.85); ctx.stroke(); }
+      }
+    } else if (terrainIndex===1) {
+      for(let i=-1;i&lt;7;i++) {
+        const x=i*190-drift*.8;
+        ctx.fillStyle=&#x27;#b9d4df&#x27;; ctx.beginPath(); ctx.moveTo(x,GROUND-85); ctx.lineTo(x+90,GROUND-240-(i%2)*24); ctx.lineTo(x+180,GROUND-85); ctx.closePath(); ctx.fill();
+        ctx.fillStyle=&#x27;#6c91a8&#x27;; ctx.beginPath(); ctx.moveTo(x+65,GROUND-135); ctx.lineTo(x+90,GROUND-240-(i%2)*24); ctx.lineTo(x+112,GROUND-136); ctx.closePath(); ctx.fill();
+      }
+    } else if (terrainIndex===2) {
+      for(let i=-1;i&lt;7;i++) {
+        const x=i*175-drift*.65;
+        ctx.strokeStyle=&#x27;#263f3b&#x27;; ctx.lineWidth=8; ctx.beginPath(); ctx.moveTo(x+70,GROUND); ctx.lineTo(x+64,GROUND-130); ctx.lineTo(x+28,GROUND-165); ctx.moveTo(x+64,GROUND-120); ctx.lineTo(x+108,GROUND-150); ctx.stroke();
+        ctx.fillStyle=&#x27;rgba(156,214,153,.2)&#x27;; ctx.beginPath(); ctx.arc(x+45,GROUND-170,16,0,Math.PI*2); ctx.arc(x+84,GROUND-162,21,0,Math.PI*2); ctx.fill();
+      }
+    } else if (terrainIndex===3) {
+      for(let i=-1;i&lt;7;i++) {
+        const x=i*185-drift*.65;
+        ctx.fillStyle=&#x27;#9e746f&#x27;; ctx.beginPath(); ctx.moveTo(x,GROUND-65); ctx.quadraticCurveTo(x+68,GROUND-172,x+130,GROUND-67); ctx.closePath(); ctx.fill();
+        if(i%2===0){ctx.fillStyle=&#x27;#533947&#x27;;ctx.fillRect(x+138,GROUND-102,15,38);ctx.beginPath();ctx.arc(x+145,GROUND-105,18,Math.PI,Math.PI*2);ctx.fill();}
+      }
+    } else if (terrainIndex===5) {
+      for(let i=-1;i&lt;6;i++) {
+        const x=i*195-drift*.4;
+        ctx.fillStyle=&#x27;#25253e&#x27;; ctx.fillRect(x+25,GROUND-170,74,170); ctx.fillRect(x+14,GROUND-187,96,18);
+        ctx.beginPath(); ctx.moveTo(x+28,GROUND-170); ctx.lineTo(x+61,GROUND-222); ctx.lineTo(x+96,GROUND-170); ctx.closePath(); ctx.fill();
+        ctx.fillStyle=&#x27;#7b5c8c&#x27;; ctx.fillRect(x+55,GROUND-135,11,28);
+      }
+    } else if (terrainIndex===6) {
+      for(let i=-1;i&lt;7;i++) {
+        const x=i*170-drift*.35;
+        ctx.fillStyle=&#x27;#32182f&#x27;; ctx.beginPath(); ctx.moveTo(x+15,GROUND); ctx.lineTo(x+25,GROUND-160); ctx.lineTo(x+47,GROUND-205); ctx.lineTo(x+70,GROUND-160); ctx.lineTo(x+80,GROUND); ctx.closePath(); ctx.fill();
+        ctx.fillStyle=&#x27;#411b31&#x27;; ctx.fillRect(x+44,GROUND-152,7,55);
+      }
+    }
+    ctx.restore();
+  }
+  function hexAlpha(hex,a) {
+    const h=hex.replace(&#x27;#&#x27;,&#x27;&#x27;); const r=parseInt(h.slice(0,2),16),g=parseInt(h.slice(2,4),16),b=parseInt(h.slice(4,6),16);
+    return `rgba(${r},${g},${b},${Math.max(0,Math.min(1,a))})`;
+  }
+  function screenX(pos) { return PLAYER_X + (pos-progress)*PROJECTION; }
+  function drawWorldObjects() {
+    const t=terrains[terrainIndex];
+    for (const o of objects) {
+      if (o.handled &amp;&amp; o.kind===&#x27;coin&#x27;) continue;
+      const x=screenX(o.pos);
+      if (x &lt; -90 || x &gt; W+110) continue;
+      if (o.kind===&#x27;coin&#x27;) {
+        const y=GROUND-20-o.height;
+        const bob=Math.sin(time*3+o.id)*3;
+        ctx.save(); ctx.translate(x,y+bob);
+        ctx.shadowColor=&#x27;#ffdc8c&#x27;; ctx.shadowBlur=15;
+        ctx.fillStyle=&#x27;#ffd477&#x27;; ctx.beginPath(); ctx.arc(0,0,8,0,Math.PI*2); ctx.fill();
+        ctx.shadowBlur=0; ctx.strokeStyle=&#x27;#fff0b9&#x27;; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,0,4,0,Math.PI*2); ctx.stroke();
+        ctx.fillStyle=&#x27;rgba(255,255,255,.8)&#x27;; ctx.beginPath(); ctx.arc(-2,-3,1.5,0,Math.PI*2); ctx.fill();
+        ctx.restore();
+      } else drawHazard(x,o);
+    }
+    if (state===&#x27;playing&#x27; &amp;&amp; !shrineResolved) {
+      const x=screenX(SKILL_AT);
+      if (x &gt; 40 &amp;&amp; x &lt; W+90) drawShrine(x,t);
+    }
+    // A small light path makes the route legible.
+    ctx.fillStyle=hexAlpha(t.accent,.11); ctx.fillRect(0,GROUND+6,W,1);
+  }
+  function drawHazard(x,o) {
+    const y=GROUND;
+    ctx.save();
+    const type=o.type;
+    if (o.need===&#x27;duck&#x27;) {
+      const color = terrainIndex===1 ? &#x27;#c7efff&#x27; : terrainIndex===6 ? &#x27;#ff806b&#x27; : &#x27;#96bba2&#x27;;
+      ctx.shadowColor=color; ctx.shadowBlur=8;
+      if([&#x27;branch&#x27;,&#x27;vine&#x27;,&#x27;reed&#x27;,&#x27;blade&#x27;,&#x27;soulchain&#x27;,&#x27;fallen&#x27;,&#x27;icicle&#x27;].includes(type)) {
+        ctx.strokeStyle=color; ctx.lineWidth=type===&#x27;blade&#x27;?8:7; ctx.lineCap=&#x27;round&#x27;;
+        ctx.beginPath();
+        if(type===&#x27;icicle&#x27;) { ctx.moveTo(x-12,y-160); ctx.lineTo(x,y-114); ctx.lineTo(x+13,y-160); }
+        else if(type===&#x27;blade&#x27;) { ctx.moveTo(x-5,y-140); ctx.lineTo(x+4,y-80); ctx.lineTo(x+28,y-69); }
+        else if(type===&#x27;soulchain&#x27;) { ctx.moveTo(x-28,y-102); ctx.bezierCurveTo(x-6,y-126,x+13,y-77,x+35,y-104); }
+        else if(type===&#x27;fallen&#x27;) { ctx.moveTo(x-35,y-91); ctx.lineTo(x+35,y-88); }
+        else { ctx.moveTo(x-40,y-86); ctx.quadraticCurveTo(x,y-104,x+43,y-86); }
+        ctx.stroke();
+        if(type===&#x27;branch&#x27;||type===&#x27;vine&#x27;||type===&#x27;reed&#x27;) {ctx.strokeStyle=hexAlpha(color,.6);ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x-7,y-91);ctx.lineTo(x-18,y-72);ctx.moveTo(x+8,y-89);ctx.lineTo(x+22,y-70);ctx.stroke();}
+      } else {
+        ctx.fillStyle=color; ctx.beginPath(); ctx.roundRect(x-31,y-50,62,34,8); ctx.fill();
+      }
+    } else if (o.need===&#x27;jump&#x27;) {
+      const color = type===&#x27;lava&#x27;||type===&#x27;hellfire&#x27; ? &#x27;#ff735f&#x27; : type===&#x27;icicle&#x27; ? &#x27;#b9f0ff&#x27; : type===&#x27;toxic&#x27; ? &#x27;#a7e99c&#x27; : type===&#x27;thorn&#x27; ? &#x27;#b4d6a3&#x27; : &#x27;#c6b2ff&#x27;;
+      ctx.shadowColor=color; ctx.shadowBlur=11;
+      if ([&#x27;gap&#x27;,&#x27;crevasse&#x27;,&#x27;lava&#x27;,&#x27;toxic&#x27;,&#x27;mire&#x27;].includes(type)) {
+        ctx.fillStyle=type===&#x27;lava&#x27;?&#x27;#ff6b5d&#x27;:type===&#x27;toxic&#x27;?&#x27;#9cdd8d&#x27;:type===&#x27;mire&#x27;?&#x27;#4d8272&#x27;:&#x27;#100f20&#x27;;
+        ctx.beginPath(); ctx.ellipse(x,y+8,38,12,0,0,Math.PI*2); ctx.fill();
+        ctx.strokeStyle=color; ctx.lineWidth=2; ctx.beginPath(); ctx.ellipse(x,y+7,31,6+Math.sin(time*3+o.id)*2,0,0,Math.PI*2); ctx.stroke();
+        if(type===&#x27;lava&#x27;||type===&#x27;hellfire&#x27;) { ctx.fillStyle=&#x27;#ffce8e&#x27;; ctx.beginPath(); ctx.arc(x-9,y+4,3,0,Math.PI*2); ctx.arc(x+12,y+6,2,0,Math.PI*2); ctx.fill(); }
+      } else if ([&#x27;root&#x27;,&#x27;roots&#x27;,&#x27;thorn&#x27;,&#x27;plant&#x27;].includes(type)) {
+        ctx.strokeStyle=color; ctx.lineWidth=7; ctx.lineCap=&#x27;round&#x27;; ctx.beginPath(); ctx.moveTo(x-30,y); ctx.quadraticCurveTo(x-14,y-43,x-4,y-9); ctx.quadraticCurveTo(x+7,y-35,x+22,y-4); ctx.stroke();
+        ctx.fillStyle=color; ctx.beginPath(); ctx.moveTo(x+8,y-31); ctx.lineTo(x+26,y-43); ctx.lineTo(x+22,y-20); ctx.closePath(); ctx.fill();
+      } else if (type===&#x27;vent&#x27;) {
+        ctx.fillStyle=&#x27;#55343e&#x27;; ctx.beginPath(); ctx.ellipse(x,y-3,33,9,0,0,Math.PI*2); ctx.fill();
+        for(let j=0;j&lt;3;j++){ctx.fillStyle=hexAlpha(&#x27;#ffb181&#x27;,.55-j*.13);ctx.beginPath();ctx.ellipse(x+(j-1)*12,y-30-j*6,5,12+j*2,0,0,Math.PI*2);ctx.fill();}
+      } else if (type===&#x27;dune&#x27;||type===&#x27;snowdrift&#x27;) {
+        ctx.fillStyle=color; ctx.beginPath(); ctx.moveTo(x-38,y); ctx.quadraticCurveTo(x-8,y-47,x+8,y-28); ctx.quadraticCurveTo(x+25,y-45,x+39,y); ctx.closePath(); ctx.fill();
+      } else {
+        ctx.fillStyle=color; ctx.beginPath(); ctx.moveTo(x-31,y); ctx.lineTo(x-17,y-37); ctx.lineTo(x-2,y); ctx.lineTo(x+14,y-49); ctx.lineTo(x+33,y); ctx.closePath(); ctx.fill();
+      }
+    }
+    ctx.restore();
+  }
+  function drawShrine(x,t) {
+    const y=GROUND-64, pulse=1+Math.sin(time*2.6)*.07;
+    ctx.save(); ctx.translate(x,y); ctx.scale(pulse,pulse);
+    ctx.shadowColor=t.accent; ctx.shadowBlur=20;
+    ctx.fillStyle=hexAlpha(t.accent,.22); ctx.beginPath(); ctx.arc(0,-9,32,0,Math.PI*2); ctx.fill();
+    ctx.shadowBlur=0; ctx.strokeStyle=t.accent; ctx.lineWidth=3;
+    ctx.beginPath(); ctx.moveTo(0,-43); ctx.lineTo(26,-9); ctx.lineTo(0,22); ctx.lineTo(-26,-9); ctx.closePath(); ctx.stroke();
+    ctx.fillStyle=&#x27;#f8e8ff&#x27;; ctx.beginPath(); ctx.arc(0,-9,6,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+    if (Math.abs(x-PLAYER_X)&lt;170 &amp;&amp; !shrineResolved) {
+      ctx.fillStyle=&#x27;rgba(8,8,18,.72)&#x27;; ctx.beginPath(); ctx.roundRect(x-83,y-79,166,23,8); ctx.fill();
+      ctx.fillStyle=&#x27;#e9dcff&#x27;; ctx.font=&#x27;600 12px system-ui&#x27;; ctx.textAlign=&#x27;center&#x27;; ctx.fillText(&#x27;SKILL SHRINE AHEAD&#x27;,x,y-63);
+    }
+  }
+  function drawEnemies() {
+    for(const e of enemies) {
+      if(e.dead) continue;
+      const x=screenX(e.pos);
+      if(x &lt; -80 || x &gt; W+90) continue;
+      if(e.warning&gt;0) {
+        const a=.25+.25*Math.sin(time*20);
+        ctx.strokeStyle=hexAlpha(&#x27;#ff8c92&#x27;,.7+a); ctx.lineWidth=2;
+        ctx.beginPath(); ctx.ellipse(x,GROUND-22,28+Math.sin(time*12)*3,9,0,0,Math.PI*2); ctx.stroke();
+        const label=e.attackKind===&#x27;low&#x27;?&#x27;JUMP&#x27;:&#x27;DUCK&#x27;;
+        ctx.fillStyle=&#x27;rgba(24,9,24,.85)&#x27;;ctx.beginPath();ctx.roundRect(x-30,GROUND-122,60,21,7);ctx.fill();
+        ctx.fillStyle=&#x27;#ffbdc5&#x27;;ctx.font=&#x27;800 10px system-ui&#x27;;ctx.textAlign=&#x27;center&#x27;;ctx.fillText(label,x,GROUND-108);
+      }
+      drawDemon(x,GROUND,e.kind,e.flash&gt;0,e.hp,e.maxHp);
+      if(e.poison&gt;0){ctx.fillStyle=&#x27;#adf1a5&#x27;;ctx.beginPath();ctx.arc(x+18,GROUND-86,3+Math.sin(time*10),0,Math.PI*2);ctx.fill();}
+    }
+  }
+  function drawDemon(x,ground,kind,flash,hp,maxHp) {
+    ctx.save(); ctx.translate(x,ground);
+    const body=flash?&#x27;#fff1ce&#x27;:kind===&#x27;brute&#x27;?&#x27;#5c455f&#x27;:kind===&#x27;ranged&#x27;?&#x27;#37505d&#x27;:&#x27;#713d58&#x27;;
+    ctx.shadowColor=flash?&#x27;#fff&#x27;:kind===&#x27;ranged&#x27;?&#x27;#8dd8e2&#x27;:&#x27;#f77987&#x27;; ctx.shadowBlur=flash?16:7;
+    ctx.fillStyle=body; ctx.beginPath(); ctx.ellipse(0,-31,kind===&#x27;brute&#x27;?24:18,28,0,0,Math.PI*2); ctx.fill();
+    ctx.shadowBlur=0;
+    ctx.fillStyle=body; ctx.beginPath();ctx.moveTo(-12,-48);ctx.lineTo(-24,-67);ctx.lineTo(-4,-56);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(10,-48);ctx.lineTo(23,-65);ctx.lineTo(19,-44);ctx.closePath();ctx.fill();
+    ctx.fillStyle=&#x27;#ffc4a7&#x27;;ctx.beginPath();ctx.ellipse(8,-39,7,4,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=&#x27;#ff6f83&#x27;;ctx.fillRect(4,-41,3,3);ctx.fillRect(11,-41,3,3);
+    ctx.strokeStyle=&#x27;#251927&#x27;;ctx.lineWidth=5;ctx.lineCap=&#x27;round&#x27;;ctx.beginPath();ctx.moveTo(-11,-12);ctx.lineTo(-17,0);ctx.moveTo(10,-11);ctx.lineTo(16,0);ctx.stroke();
+    ctx.strokeStyle=kind===&#x27;ranged&#x27;?&#x27;#9ae5e5&#x27;:&#x27;#b87e83&#x27;;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-13,-29);ctx.lineTo(-27,-20);ctx.moveTo(12,-28);ctx.lineTo(25,-19);ctx.stroke();
+    ctx.restore();
+    if(maxHp&gt;1){
+      ctx.fillStyle=&#x27;rgba(10,8,20,.72)&#x27;;ctx.beginPath();ctx.roundRect(x-20,ground-91,40,5,3);ctx.fill();
+      ctx.fillStyle=&#x27;#ff8c9d&#x27;;ctx.fillRect(x-20,ground-91,40*Math.max(0,hp/maxHp),5);
+    }
+  }
+  function drawBoss() {
+    if(!boss)return;
+    const gap=boss.pos-progress;
+    const x=Math.max(330,Math.min(760,PLAYER_X+gap*PROJECTION));
+    const y=GROUND+2;
+    ctx.save(); ctx.translate(x,y);
+    const scale=1.4;
+    ctx.scale(scale,scale);
+    ctx.shadowColor=&#x27;#ff5c66&#x27;;ctx.shadowBlur=22;
+    ctx.fillStyle=boss.flash&gt;0?&#x27;#fff0d7&#x27;:&#x27;#2d172c&#x27;;
+    ctx.beginPath();ctx.moveTo(-44,-11);ctx.lineTo(-34,-96);ctx.lineTo(-19,-119);ctx.lineTo(-8,-94);ctx.lineTo(9,-129);ctx.lineTo(22,-93);ctx.lineTo(42,-108);ctx.lineTo(49,-16);ctx.closePath();ctx.fill();
+    ctx.shadowBlur=0;
+    ctx.fillStyle=boss.flash&gt;0?&#x27;#fff&#x27;:&#x27;#7c2c49&#x27;;ctx.beginPath();ctx.ellipse(0,-81,31,36,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=&#x27;#ff9b72&#x27;;ctx.beginPath();ctx.moveTo(-20,-103);ctx.lineTo(-31,-140);ctx.lineTo(-5,-118);ctx.closePath();ctx.fill();ctx.beginPath();ctx.moveTo(14,-110);ctx.lineTo(37,-145);ctx.lineTo(28,-101);ctx.closePath();ctx.fill();
+    ctx.fillStyle=&#x27;#ffe0a0&#x27;;ctx.beginPath();ctx.ellipse(-10,-83,5,3,0,0,Math.PI*2);ctx.ellipse(11,-83,5,3,0,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle=&#x27;#6c2746&#x27;;ctx.lineWidth=13;ctx.lineCap=&#x27;round&#x27;;ctx.beginPath();ctx.moveTo(-29,-59);ctx.lineTo(-51,-26);ctx.lineTo(-42,-8);ctx.moveTo(28,-59);ctx.lineTo(49,-26);ctx.lineTo(40,-8);ctx.stroke();
+    ctx.fillStyle=&#x27;#1a1221&#x27;;ctx.beginPath();ctx.moveTo(-34,-12);ctx.lineTo(-45,0);ctx.lineTo(43,0);ctx.lineTo(32,-12);ctx.closePath();ctx.fill();
+    ctx.restore();
+    // boss health bar
+    ctx.fillStyle=&#x27;rgba(11,8,20,.86)&#x27;;ctx.beginPath();ctx.roundRect(575,38,330,42,12);ctx.fill();
+    ctx.fillStyle=&#x27;#f6e9ff&#x27;;ctx.font=&#x27;700 14px system-ui&#x27;;ctx.textAlign=&#x27;left&#x27;;ctx.fillText(&#x27;THE DEMON KING&#x27;,592,56);
+    ctx.fillStyle=&#x27;rgba(255,255,255,.12)&#x27;;ctx.beginPath();ctx.roundRect(592,63,294,7,4);ctx.fill();
+    const bar=294*Math.max(0,boss.hp/boss.maxHp);ctx.fillStyle=&#x27;#ff627b&#x27;;ctx.beginPath();ctx.roundRect(592,63,bar,7,4);ctx.fill();
+    if(boss.windup&gt;0){
+      const message=boss.attackType===&#x27;hellfire&#x27;?&#x27;HELLFIRE — JUMP&#x27;:boss.attackType===&#x27;soul sweep&#x27;?&#x27;SOUL SWEEP — DUCK&#x27;:&#x27;CHARGE — BRAKE&#x27;;
+      ctx.fillStyle=&#x27;rgba(35,10,26,.88)&#x27;;ctx.beginPath();ctx.roundRect(350,120,260,34,11);ctx.fill();
+      ctx.fillStyle=&#x27;#ffd3a6&#x27;;ctx.font=&#x27;800 14px system-ui&#x27;;ctx.textAlign=&#x27;center&#x27;;ctx.fillText(message,480,142);
+    }
+  }
+  function drawPlayer(x,ground,ducking,attacking) {
+    const flicker=invulnTimer&gt;0 &amp;&amp; Math.floor(time*18)%2===0;
+    if(flicker)return;
+    const y=ground;
+    // soft shadow
+    ctx.fillStyle=&#x27;rgba(5,5,13,.33)&#x27;;ctx.beginPath();ctx.ellipse(x+3,GROUND+2,ducking?32:24,6,0,0,Math.PI*2);ctx.fill();
+    ctx.save();ctx.translate(x,y);
+    if(dashTimer&gt;0){ctx.fillStyle=&#x27;rgba(173,149,255,.22)&#x27;;ctx.beginPath();ctx.ellipse(-23,-59,32,53,0,0,Math.PI*2);ctx.fill();}
+    const bob=(jumpHeight===0 &amp;&amp; !ducking)?Math.sin(time*14)*2:0;
+    ctx.translate(0,bob);
+    if(ducking) ctx.scale(1.14,.72);
+    // back coat tails flowing left
+    ctx.fillStyle=&#x27;#171625&#x27;;ctx.strokeStyle=&#x27;#514564&#x27;;ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(-11,-92);ctx.quadraticCurveTo(-34,-77,-47,-38);ctx.lineTo(-24,-27);ctx.lineTo(-7,-59);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.beginPath();ctx.moveTo(12,-91);ctx.quadraticCurveTo(38,-69,45,-35);ctx.lineTo(29,-21);ctx.lineTo(12,-57);ctx.closePath();ctx.fill();ctx.stroke();
+    // legs and boots
+    ctx.strokeStyle=&#x27;#171520&#x27;;ctx.lineWidth=13;ctx.lineCap=&#x27;round&#x27;;ctx.beginPath();ctx.moveTo(-9,-38);ctx.lineTo(-15,-12);ctx.moveTo(12,-38);ctx.lineTo(19,-12);ctx.stroke();
+    ctx.fillStyle=&#x27;#11111c&#x27;;ctx.beginPath();ctx.roundRect(-29,-15,24,12,4);ctx.roundRect(8,-15,27,12,4);ctx.fill();
+    ctx.strokeStyle=&#x27;#aaa3bf&#x27;;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(-23,-11);ctx.lineTo(-12,-11);ctx.moveTo(-22,-7);ctx.lineTo(-12,-7);ctx.moveTo(15,-11);ctx.lineTo(28,-11);ctx.moveTo(15,-7);ctx.lineTo(27,-7);ctx.stroke();
+    // coat body
+    ctx.fillStyle=hitFlash&gt;0?&#x27;#8e465e&#x27;:&#x27;#191824&#x27;;ctx.strokeStyle=&#x27;#564666&#x27;;ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(-21,-100);ctx.lineTo(-33,-77);ctx.lineTo(-37,-18);ctx.quadraticCurveTo(-5,-7,28,-18);ctx.lineTo(27,-79);ctx.lineTo(16,-101);ctx.closePath();ctx.fill();ctx.stroke();
+    // coat lapels and inner shirt
+    ctx.fillStyle=&#x27;#29263a&#x27;;ctx.beginPath();ctx.moveTo(-18,-100);ctx.lineTo(-3,-75);ctx.lineTo(-8,-41);ctx.lineTo(-24,-75);ctx.closePath();ctx.fill();
+    ctx.beginPath();ctx.moveTo(14,-101);ctx.lineTo(2,-75);ctx.lineTo(9,-43);ctx.lineTo(23,-75);ctx.closePath();ctx.fill();
+    ctx.strokeStyle=&#x27;#78678e&#x27;;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(-6,-70);ctx.lineTo(-3,-32);ctx.moveTo(8,-72);ctx.lineTo(7,-30);ctx.stroke();
+    // belt and buckle
+    ctx.strokeStyle=&#x27;#c2b7d5&#x27;;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(-25,-43);ctx.lineTo(24,-43);ctx.stroke();
+    ctx.fillStyle=&#x27;#e1d4ee&#x27;;ctx.fillRect(-4,-49,11,13);ctx.fillStyle=&#x27;#31263f&#x27;;ctx.fillRect(-1,-46,5,7);
+    // neck and face, looking right
+    ctx.fillStyle=&#x27;#e8b8ac&#x27;;ctx.fillRect(-5,-116,15,20);
+    ctx.fillStyle=&#x27;#f1c6b9&#x27;;ctx.beginPath();ctx.ellipse(5,-126,23,27,-.08,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=&#x27;#d9979a&#x27;;ctx.beginPath();ctx.ellipse(25,-122,4,7,.4,0,Math.PI*2);ctx.fill();
+    // face details
+    ctx.fillStyle=&#x27;#282034&#x27;;ctx.beginPath();ctx.ellipse(13,-128,4,3,0,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle=&#x27;#3b2b41&#x27;;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(6,-137);ctx.quadraticCurveTo(14,-141,20,-136);ctx.stroke();
+    ctx.strokeStyle=&#x27;#bc7f89&#x27;;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(17,-116);ctx.lineTo(23,-117);ctx.stroke();
+    // neck-high collar and coat shoulders
+    ctx.fillStyle=&#x27;#28243a&#x27;;ctx.strokeStyle=&#x27;#5b4a70&#x27;;ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(-21,-103);ctx.lineTo(-31,-119);ctx.lineTo(-8,-111);ctx.lineTo(1,-97);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.beginPath();ctx.moveTo(13,-99);ctx.lineTo(27,-118);ctx.lineTo(33,-101);ctx.lineTo(24,-86);ctx.closePath();ctx.fill();ctx.stroke();
+    // messy dark curls: large silhouette with separate curls
+    ctx.fillStyle=&#x27;#191323&#x27;;ctx.strokeStyle=&#x27;#302039&#x27;;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(-17,-129);ctx.quadraticCurveTo(-30,-157,-8,-166);ctx.quadraticCurveTo(4,-177,15,-165);ctx.quadraticCurveTo(28,-166,31,-151);ctx.quadraticCurveTo(40,-143,30,-127);ctx.lineTo(20,-134);ctx.lineTo(14,-147);ctx.lineTo(2,-136);ctx.lineTo(-2,-146);ctx.lineTo(-12,-132);ctx.closePath();ctx.fill();ctx.stroke();
+    for(const c of [[-17,-151,11],[ -3,-163,10],[12,-157,12],[24,-150,10],[31,-139,9],[-22,-140,8],[4,-147,9]]){
+      ctx.beginPath();ctx.arc(c[0],c[1],c[2],0,Math.PI*2);ctx.fill();ctx.stroke();
+    }
+    ctx.fillStyle=&#x27;#242033&#x27;;ctx.beginPath();ctx.moveTo(-17,-137);ctx.quadraticCurveTo(-8,-153,4,-143);ctx.lineTo(0,-123);ctx.lineTo(-10,-128);ctx.closePath();ctx.fill();
+    // arm and hand holding sword
+    ctx.strokeStyle=&#x27;#282238&#x27;;ctx.lineWidth=10;ctx.lineCap=&#x27;round&#x27;;ctx.beginPath();ctx.moveTo(18,-88);ctx.lineTo(33,-72);ctx.stroke();
+    ctx.fillStyle=&#x27;#e8b8ac&#x27;;ctx.beginPath();ctx.arc(33,-70,6,0,Math.PI*2);ctx.fill();
+    // Sword rests visibly forward; slash rotates with attack
+    ctx.save();
+    if(attacking) { ctx.translate(33,-73); ctx.rotate(-.52); }
+    ctx.strokeStyle=&#x27;#4b3c5d&#x27;;ctx.lineWidth=7;ctx.lineCap=&#x27;round&#x27;;ctx.beginPath();ctx.moveTo(30,-72);ctx.lineTo(48,-89);ctx.stroke();
+    ctx.strokeStyle=&#x27;#e2e6f5&#x27;;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(44,-86);ctx.lineTo(78,-124);ctx.stroke();
+    ctx.strokeStyle=&#x27;#fff8e5&#x27;;ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(46,-88);ctx.lineTo(76,-122);ctx.stroke();
+    ctx.strokeStyle=&#x27;#d4bbff&#x27;;ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(38,-81);ctx.lineTo(51,-70);ctx.stroke();
+    ctx.restore();
+    if(attacking){ctx.strokeStyle=&#x27;rgba(210,198,255,.8)&#x27;;ctx.lineWidth=3;ctx.beginPath();ctx.arc(38,-83,54,-.75,.32);ctx.stroke();}
+    ctx.restore();
+  }
+  function drawHud() {
+    if(state===&#x27;title&#x27;||state===&#x27;intro&#x27;||state===&#x27;help&#x27;)return;
+    const t=terrains[terrainIndex];
+    // top left: health and current route
+    ctx.save();
+    ctx.fillStyle=&#x27;rgba(10,10,23,.68)&#x27;;ctx.beginPath();ctx.roundRect(18,16,328,76,15);ctx.fill();
+    ctx.strokeStyle=&#x27;rgba(230,221,255,.14)&#x27;;ctx.lineWidth=1;ctx.stroke();
+    ctx.fillStyle=&#x27;#f5efff&#x27;;ctx.font=&#x27;700 13px system-ui&#x27;;ctx.textAlign=&#x27;left&#x27;;ctx.fillText(t.name.toUpperCase(),32,37);
+    ctx.fillStyle=&#x27;#aaa4c7&#x27;;ctx.font=&#x27;11px system-ui&#x27;;ctx.fillText(state===&#x27;boss&#x27;?&#x27;FINAL ENCOUNTER&#x27;:`SCENARIO ${terrainIndex+1} OF 7`,32,54);
+    for(let i=0;i&lt;8;i++) drawHeart(37+i*24,73,i&lt;hearts);
+    // top right: regressions and coins
+    ctx.fillStyle=&#x27;rgba(10,10,23,.68)&#x27;;ctx.beginPath();ctx.roundRect(690,16,252,76,15);ctx.fill();
+    ctx.strokeStyle=&#x27;rgba(230,221,255,.14)&#x27;;ctx.stroke();
+    ctx.fillStyle=&#x27;#c8b2ff&#x27;;ctx.font=&#x27;800 11px system-ui&#x27;;ctx.fillText(&#x27;REGRESSION&#x27;,706,36);
+    ctx.fillStyle=&#x27;#f8f0ff&#x27;;ctx.font=&#x27;800 20px ui-monospace,monospace&#x27;;ctx.fillText(profile.regression.length&gt;13?profile.regression.slice(0,5)+&#x27;…&#x27;+profile.regression.slice(-5):profile.regression,706,60);
+    ctx.fillStyle=&#x27;#ffd884&#x27;;ctx.font=&#x27;700 13px system-ui&#x27;;ctx.textAlign=&#x27;right&#x27;;ctx.fillText(`◉ ${runCoins}`,925,39);
+    ctx.fillStyle=&#x27;#cbc5e2&#x27;;ctx.font=&#x27;11px system-ui&#x27;;ctx.fillText(`LV ${profile.level} · ${profile.totalExp.toLocaleString()} EXP total`,925,59);
+    // bottom-ish progress and stamina rails
+    const barY=500;
+    ctx.fillStyle=&#x27;rgba(10,10,23,.65)&#x27;;ctx.beginPath();ctx.roundRect(18,barY,410,23,8);ctx.fill();
+    ctx.fillStyle=&#x27;rgba(255,255,255,.10)&#x27;;ctx.beginPath();ctx.roundRect(28,barY+7,260,7,4);ctx.fill();
+    const localProgress=Math.min(1,progress/(terrainIndex===6?BOSS_START:STAGE_LENGTH));
+    ctx.fillStyle=t.accent;ctx.beginPath();ctx.roundRect(28,barY+7,260*localProgress,7,4);ctx.fill();
+    ctx.fillStyle=&#x27;#e3ddef&#x27;;ctx.font=&#x27;11px system-ui&#x27;;ctx.textAlign=&#x27;left&#x27;;ctx.fillText(state===&#x27;boss&#x27;?&#x27;DEMON KING&#x27;:`PATH ${Math.round(localProgress*100)}%`,300,barY+15);
+    // stamina
+    ctx.fillStyle=&#x27;rgba(10,10,23,.65)&#x27;;ctx.beginPath();ctx.roundRect(445,barY,175,23,8);ctx.fill();
+    ctx.fillStyle=&#x27;rgba(255,255,255,.10)&#x27;;ctx.beginPath();ctx.roundRect(455,barY+7,115,7,4);ctx.fill();
+    ctx.fillStyle=&#x27;#8be6ce&#x27;;ctx.beginPath();ctx.roundRect(455,barY+7,115*(stamina/maxStamina),7,4);ctx.fill();
+    ctx.fillStyle=&#x27;#cdd7db&#x27;;ctx.font=&#x27;11px system-ui&#x27;;ctx.fillText(&#x27;STAMINA&#x27;,577,barY+15);
+    // active skill status
+    ctx.fillStyle=&#x27;rgba(10,10,23,.65)&#x27;;ctx.beginPath();ctx.roundRect(636,barY,306,23,8);ctx.fill();
+    const atText=atDoorTimer&gt;0?`AT DEATH&#x27;S DOOR ${atDoorTimer.toFixed(1)}s`:hearts&lt;=2?(atDoorCooldown&gt;0?`E · READY IN ${Math.ceil(atDoorCooldown)}s`:&#x27;E · AT DEATH’S DOOR READY&#x27;):&#x27;E · AT DEATH’S DOOR (≤2 ♥)&#x27;;
+    ctx.fillStyle=hearts&lt;=2?&#x27;#ffb3bb&#x27;:&#x27;#c7c0da&#x27;;ctx.font=&#x27;11px system-ui&#x27;;ctx.fillText(atText,648,barY+15);
+    ctx.restore();
+  }
+  function drawHeart(x,y,full) {
+    ctx.save();ctx.translate(x,y);ctx.scale(.62,.62);
+    ctx.fillStyle=full?&#x27;#ff6e88&#x27;:&#x27;rgba(255,255,255,.12)&#x27;;
+    if(full){ctx.shadowColor=&#x27;#ff5b7c&#x27;;ctx.shadowBlur=7;}
+    ctx.beginPath();ctx.moveTo(0,7);ctx.bezierCurveTo(-19,-4,-12,-15,-4,-11);ctx.bezierCurveTo(0,-9,0,-5,0,-5);ctx.bezierCurveTo(4,-15,16,-14,15,-5);ctx.bezierCurveTo(14,0,7,5,0,11);ctx.closePath();ctx.fill();ctx.restore();
+  }
+  function drawRegressionVignette() {
+    const g=ctx.createRadialGradient(PLAYER_X,270,70,PLAYER_X,270,550);g.addColorStop(0,&#x27;rgba(20,8,30,0.05)&#x27;);g.addColorStop(1,&#x27;rgba(8,4,20,.72)&#x27;);ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+  }
+  function drawVictoryGlints() {
+    for(let i=0;i&lt;24;i++) {const x=(i*107+Math.sin(time+i)*24)%W,y=(i*71+time*(12+i%4*3))%H;ctx.fillStyle=`rgba(255,225,171,${.25+.4*Math.sin(time*2+i)**2})`;ctx.beginPath();ctx.arc(x,y,1.5+(i%3),0,Math.PI*2);ctx.fill();}
+  }
+
+  function handleAction(action, el) {
+    switch(action) {
+      case &#x27;start&#x27;: setState(&#x27;intro&#x27;); break;
+      case &#x27;begin&#x27;: startRun(); break;
+      case &#x27;resume&#x27;: setState(pauseReturnState || &#x27;playing&#x27;); break;
+      case &#x27;title&#x27;: state=&#x27;title&#x27;; renderOverlay(); break;
+      case &#x27;controls&#x27;: stateBeforeArchive=state; setState(&#x27;help&#x27;); break;
+      case &#x27;help-back&#x27;: setState([&#x27;playing&#x27;,&#x27;boss&#x27;,&#x27;pause&#x27;,&#x27;shop&#x27;,&#x27;skills&#x27;].includes(stateBeforeArchive) ? stateBeforeArchive : &#x27;title&#x27;); break;
+      case &#x27;archive&#x27;: stateBeforeArchive=state; setState(&#x27;archive&#x27;); break;
+      case &#x27;archive-back&#x27;: setState([&#x27;playing&#x27;,&#x27;boss&#x27;,&#x27;skills&#x27;,&#x27;shop&#x27;,&#x27;pause&#x27;].includes(stateBeforeArchive) ? stateBeforeArchive : &#x27;title&#x27;); break;
+      case &#x27;choose-skill&#x27;: chooseSkill(el.dataset.skill); break;
+      case &#x27;replace-skill&#x27;: replaceSkill(el.dataset.old); break;
+      case &#x27;keep-loadout&#x27;: keepLoadout(); break;
+      case &#x27;toggle-skill&#x27;: toggleSkill(el.dataset.skill); break;
+      case &#x27;next-stage&#x27;: enterTerrain(terrainIndex+1); setState(&#x27;playing&#x27;); showToast(`${terrains[terrainIndex].name} · Keep moving`); break;
+      case &#x27;buy-heal&#x27;: {
+        if(shopUsed||runCoins&lt;10||hearts&gt;=8)return;
+        runCoins-=10; shopUsed=true; hearts=Math.min(8,hearts+2+(profile.upgrades.recovery||0)); showToast(&#x27;Health restored&#x27;); renderOverlay(); playSound(&#x27;heal&#x27;); break;
+      }
+      case &#x27;buy-shield&#x27;: {
+        if(shopUsed||runCoins&lt;15)return;
+        runCoins-=15;shopUsed=true;nextShield=true;showToast(&#x27;A shield will protect you in the next Scenario&#x27;);renderOverlay();playSound(&#x27;shield&#x27;);break;
+      }
+      case &#x27;upgrade&#x27;: spendUpgrade(el.dataset.upgrade); break;
+      case &#x27;regress-now&#x27;: {
+        startRun(); break;
+      }
+    }
+  }
+  overlay.addEventListener(&#x27;click&#x27;, (ev) =&gt; {
+    const btn=ev.target.closest(&#x27;button[data-action]&#x27;);
+    if(!btn || btn.disabled) return;
+    handleAction(btn.dataset.action,btn);
+  });
+  helpBtn.addEventListener(&#x27;click&#x27;, () =&gt; { stateBeforeArchive=state; setState(&#x27;help&#x27;); });
+  soundBtn.addEventListener(&#x27;click&#x27;, () =&gt; {
+    muted=!muted; soundBtn.textContent=muted?&#x27;♪ Sound off&#x27;:&#x27;♫ Sound on&#x27;; soundBtn.setAttribute(&#x27;aria-pressed&#x27;,String(!muted));
+    if(!muted) {ensureAudio();playSound(&#x27;coin&#x27;);}
+  });
+
+  function ensureAudio() {
+    if(muted)return null;
+    try { if(!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)(); if(audioContext.state===&#x27;suspended&#x27;) audioContext.resume(); return audioContext; } catch { return null; }
+  }
+  function playSound(kind) {
+    const ac=ensureAudio(); if(!ac)return;
+    const settings={coin:[740,.07,&#x27;sine&#x27;],sword:[190,.09,&#x27;sawtooth&#x27;],enemy:[130,.12,&#x27;triangle&#x27;],hurt:[110,.18,&#x27;sawtooth&#x27;],shield:[500,.1,&#x27;sine&#x27;],skill:[660,.14,&#x27;triangle&#x27;],jump:[330,.07,&#x27;sine&#x27;],heal:[580,.12,&#x27;sine&#x27;],warning:[160,.16,&#x27;square&#x27;],boss:[95,.35,&#x27;sawtooth&#x27;],bossHit:[250,.12,&#x27;triangle&#x27;],victory:[850,.3,&#x27;sine&#x27;]};
+    const [freq,dur,type]=settings[kind]||settings.coin;
+    const osc=ac.createOscillator(),gain=ac.createGain();osc.type=type;osc.frequency.setValueAtTime(freq,ac.currentTime);if(kind===&#x27;victory&#x27;)osc.frequency.exponentialRampToValueAtTime(freq*1.6,ac.currentTime+dur);gain.gain.setValueAtTime(.0001,ac.currentTime);gain.gain.exponentialRampToValueAtTime(.055,ac.currentTime+.012);gain.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+dur);osc.connect(gain);gain.connect(ac.destination);osc.start();osc.stop(ac.currentTime+dur+.02);
+  }
+
+  window.addEventListener(&#x27;keydown&#x27;, (ev) =&gt; {
+    const relevant=[&#x27;Space&#x27;,&#x27;ArrowUp&#x27;,&#x27;ArrowDown&#x27;,&#x27;ArrowLeft&#x27;,&#x27;ArrowRight&#x27;,&#x27;KeyX&#x27;,&#x27;KeyE&#x27;,&#x27;KeyQ&#x27;,&#x27;KeyP&#x27;,&#x27;Escape&#x27;];
+    if(relevant.includes(ev.code)) ev.preventDefault();
+    if(ev.code===&#x27;Escape&#x27;||ev.code===&#x27;KeyP&#x27;) {
+      if(state===&#x27;playing&#x27;||state===&#x27;boss&#x27;){pauseReturnState=state;stateBeforeArchive=state;setState(&#x27;pause&#x27;);return;}
+      if(state===&#x27;pause&#x27;){setState(pauseReturnState || &#x27;playing&#x27;);return;}
+    }
+    if([&#x27;Space&#x27;,&#x27;ArrowUp&#x27;,&#x27;ArrowDown&#x27;,&#x27;ArrowLeft&#x27;,&#x27;ArrowRight&#x27;].includes(ev.code)) keys[ev.code]=true;
+    if(ev.repeat)return;
+    if(ev.code===&#x27;Space&#x27;) jump();
+    if(ev.code===&#x27;KeyX&#x27;) useAttack();
+    if(ev.code===&#x27;KeyE&#x27;) activateDeathDoor();
+    if(ev.code===&#x27;KeyQ&#x27;) activateDash();
+    if((ev.code===&#x27;Enter&#x27;||ev.code===&#x27;Space&#x27;) &amp;&amp; state===&#x27;title&#x27;) { setState(&#x27;intro&#x27;); }
+    else if((ev.code===&#x27;Enter&#x27;||ev.code===&#x27;Space&#x27;) &amp;&amp; state===&#x27;intro&#x27;) startRun();
+    else if((ev.code===&#x27;Enter&#x27;||ev.code===&#x27;Space&#x27;) &amp;&amp; state===&#x27;regression&#x27;) startRun();
+  });
+  window.addEventListener(&#x27;keyup&#x27;, (ev) =&gt; { keys[ev.code]=false; });
+  window.addEventListener(&#x27;blur&#x27;, () =&gt; { for(const k of Object.keys(keys))keys[k]=false; if(state===&#x27;playing&#x27;||state===&#x27;boss&#x27;){pauseReturnState=state;stateBeforeArchive=state;setState(&#x27;pause&#x27;);} });
+  document.addEventListener(&#x27;visibilitychange&#x27;, () =&gt; { if(document.hidden &amp;&amp; (state===&#x27;playing&#x27;||state===&#x27;boss&#x27;)){pauseReturnState=state;stateBeforeArchive=state;setState(&#x27;pause&#x27;);} });
+
+  function fitCanvas() {
+    const dpr=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);
+    const c=canvas.getContext(&#x27;2d&#x27;);c.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener(&#x27;resize&#x27;,fitCanvas);
+  fitCanvas();
+
+  function loop(ts) {
+    const dt=lastTime?Math.min(.04,(ts-lastTime)/1000):0;
+    lastTime=ts;
+    update(dt);
+    draw();
+    animationFrame=requestAnimationFrame(loop);
+  }
+  renderOverlay();
+  // A quiet initial scene, ready for the opening panel.
+  enterTerrain(0);
+  // enterTerrain initializes stage-local scenery; return to the title state without starting movement.
+  state=&#x27;title&#x27;;renderOverlay();
+  animationFrame=requestAnimationFrame(loop);
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+">
+            Your browser does not support embedded content.
+        </iframe>
+    </section>
+
+    <section id="contact" class="contact-section">
+
+        <div class="contact-box">
+
+            <div class="ornament">
+                ❦
+            </div>
+
+            <div class="eyebrow">
+                Contact
+            </div>
+
+            <h2>
+                Let's connect.
+            </h2>
+
+            <div class="gold-line center"></div>
+
+            <p>
+                Whether you'd like to discuss academics, opportunities,
+                collaboration, or simply connect, feel free to reach out.
+            </p>
+
+            <a
+                class="email"
+                href="mailto:abba@gmail.com"
+            >
+                abba@gmail.com
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+        <span class="ornament">
+            ✦ ── ❦ ── ✦
+        </span>
+
+        <p>
+            © 2026 Pujeetha. Built with HTML & CSS.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
 
